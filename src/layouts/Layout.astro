@@ -1,7 +1,10 @@
 ---
+import Navbar from "@components/Navbar/Navbar.svelte";
+
 const {
     title,
     description,
+    nav = true,
     robots = true,
     } = Astro.props;
 ---
@@ -25,6 +28,9 @@ const {
         <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
     </head>
     <body>
-        <slot />
+        {nav ? <Navbar page={title} client:load/> : <></> }
+        <main>
+            <slot />
+        </main>
     </body>
 </html>

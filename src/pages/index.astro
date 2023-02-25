@@ -1,10 +1,14 @@
 ---
-import Button from "@components/Button.svelte";
 import Layout from "@layouts/Layout.astro";
+import Hero from "@components/home/Hero.svelte";
+import Swoosh from "@components/Swoosh.svelte";
+import StatsDisplay from "@components/home/StatsDisplay.svelte";
 ---
 
 <Layout
     title="U.P. Lions Serve: Childhood Cancer"
     description="Working every day to raise funds for Upper Peninsula families battling childhood cancer, the U.P. Lions Serve: Childhood Cancer program assembles initiatives to assist these families in paying for travel, medical, and household bills. We provide resources and connect families with life-changing programs, including Camp Quality, Maggie’s Wigs 4 Kids, and Kids Kicking Cancer.">
-    <Button href="https://harrisonbouche.com">Hello World</Button>
+    <Hero />
+    <Swoosh swooshNum={2} />
+    <StatsDisplay />
 </Layout>
