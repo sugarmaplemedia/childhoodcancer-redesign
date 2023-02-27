@@ -3,6 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import Hero from "@components/home/Hero.svelte";
 import Swoosh from "@components/Swoosh.svelte";
 import StatsDisplay from "@components/home/StatsDisplay.svelte";
+import MediaAndText from "@components/MediaAndText.svelte";
+import Button from "@components/Button.svelte";
 ---
 
 <Layout
@@ -10,5 +12,13 @@ import StatsDisplay from "@components/home/StatsDisplay.svelte";
     description="Working every day to raise funds for Upper Peninsula families battling childhood cancer, the U.P. Lions Serve: Childhood Cancer program assembles initiatives to assist these families in paying for travel, medical, and household bills. We provide resources and connect families with life-changing programs, including Camp Quality, Maggie’s Wigs 4 Kids, and Kids Kicking Cancer.">
     <Hero />
     <Swoosh swooshNum={2} />
+    <!-- Todo: Make stats bubble pop-up to expand upon info -->
     <StatsDisplay />
+    <MediaAndText>
+        <span slot="title">
+            Our <span class="text-orange">Mission</span>
+        </span>
+        <p>Is to serve children and families from the Upper Peninsula who are battling childhood cancer. Our program assembles initiatives to help these families meet financial needs for travel, medical, and household bills.</p>
+        <Button href="/about#mission">Learn more</Button>
+    </MediaAndText>
 </Layout>

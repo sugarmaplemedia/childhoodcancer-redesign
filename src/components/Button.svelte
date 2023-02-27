@@ -1,6 +1,6 @@
-<script>
-    export let href = "#"
-    export let newtab = false
+<script lang="ts">
+    export let href: string = "#"
+    export let newtab: boolean = false
 </script>
 
 <a

@@ -27,8 +27,9 @@ const {
         <!-- Donorbox initialization -->
         <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
     </head>
-    <body>
-        {nav ? <Navbar page={title} client:load/> : <></> }
+    <body class="
+        text-navy">
+        {nav ? <Navbar page={title} /> : <></> }
         <main>
             <slot />
         </main>

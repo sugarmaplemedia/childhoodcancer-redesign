@@ -11,7 +11,8 @@ module.exports = {
           'navy': '#4B6496',
           'navy-super-light': '#DEE8FC',
           'navy-light': '#85A7EB',
-          'navy-dark': '#1F3155'
+          'navy-dark': '#1F3155',
+          'red': '#FF0000'
         },
         fontFamily: {
             sans: ['URW-Din', 'Arial'],
