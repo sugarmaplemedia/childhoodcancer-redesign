@@ -27,7 +27,8 @@ module.exports = {
                 65: '.65'
             },
             dropShadow: {
-                'blue': '0 2px 4px rgba(31, 49, 85, 0.35)'
+                'blue': '0 2px 5px rgba(31, 49, 85, 0.20)',
+                'blue-hover': '0 6px 8px rgba(31, 49, 85, 0.10)'
             },
             minWidth: {
                 '2400px': '1800px'
@@ -43,6 +44,9 @@ module.exports = {
                 '22': '5.5rem',
                 'programs': '10.5rem',
                 'resources': '21rem',
+            },
+            scale: {
+                '102': '1.02'
             },
             transitionTimingFunction: {
                 'bounce': 'cubic-bezier(0.68, -0.6, 0.32, 1.6)',

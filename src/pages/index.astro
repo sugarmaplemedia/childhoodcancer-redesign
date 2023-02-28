@@ -5,20 +5,152 @@ import Swoosh from "@components/Swoosh.svelte";
 import StatsDisplay from "@components/home/StatsDisplay.svelte";
 import MediaAndText from "@components/MediaAndText.svelte";
 import Button from "@components/Button.svelte";
+import Cards from "@components/Cards.svelte";
+import Headline from "@components/sub-components/Headline.svelte";
+import Icon from "@components/Icon.svelte";
+import Heading from "@components/Heading.svelte";
 ---
 
 <Layout
     title="U.P. Lions Serve: Childhood Cancer"
     description="Working every day to raise funds for Upper Peninsula families battling childhood cancer, the U.P. Lions Serve: Childhood Cancer program assembles initiatives to assist these families in paying for travel, medical, and household bills. We provide resources and connect families with life-changing programs, including Camp Quality, Maggie’s Wigs 4 Kids, and Kids Kicking Cancer.">
     <Hero />
-    <Swoosh swooshNum={2} />
+    <Swoosh swooshNum={2} styles="-translate-y-64" />
     <!-- Todo: Make stats bubble pop-up to expand upon info -->
     <StatsDisplay />
-    <MediaAndText>
+    <MediaAndText src="/images/canDrive5-compressed.jpg">
         <span slot="title">
             Our <span class="text-orange">Mission</span>
         </span>
         <p>Is to serve children and families from the Upper Peninsula who are battling childhood cancer. Our program assembles initiatives to help these families meet financial needs for travel, medical, and household bills.</p>
         <Button href="/about#mission">Learn more</Button>
     </MediaAndText>
+    <Cards />
+    <section class="pt-96">
+        <img 
+            src="/images/Rylan.jpg"
+            alt="Boy on a swingset"
+            class="
+                max-w-xl
+                absolute right-0 -translate-y-72 -z-30
+                rounded-l-3xl"/>
+        <div class="
+            max-w-4xl py-16 pl-24 pr-16
+            bg-white rounded-r-3xl
+            drop-shadow-blue">
+            <div class="
+                space-x-12
+                flex items-center justify-center
+                ">
+                <span class="
+                    w-12 h-12
+                    flex items-center justify-center
+                    bg-orange-light rounded-full">
+                    <Icon id="arrow" color="fill-navy" styling="translate-y-0.5 scale-50 rotate-180" />
+                </span>
+                <Headline>Our <span class="text-orange">Heroes</span></Headline>
+                <span class="
+                    w-12 h-12
+                    flex items-center justify-center
+                    bg-orange rounded-full">
+                    <Icon id="arrow" color="fill-white" styling="-translate-y-0.5 scale-50" />
+                </span>
+            </div>
+            <div class="space-y-4">
+                <Heading size={4}>Rylan</Heading>
+                <p class="font-bold">
+                    Rylan is an Upper Peninsula 5-year-old who was being treated for high-risk neuroblastoma. He gained his Angel Wings on July 18, 2022.
+                </p>
+                <p>
+                    His father is very grateful for the assistance as Rylan received treatment at the University of Michigan hospitals in Ann Arbor, including surgery, chemotherapy, bone marrow transplants, and more. This treatment required lengthy hospitalizations, keeping Rylan and his mom away from his father and siblings for months.
+                </p>
+            </div>
+        </div>
+    </section>
+    <Swoosh swooshNum={5} styles="-translate-y-96" />
+    <section class="py-60 space-y-10">
+        <Headline>Our <span class="text-orange">Statistics</span></Headline>
+        <div class="
+            flex items-center">
+            <div class="
+                w-1/6 space-y-8
+                flex flex-col items-center justify-center">
+                <Icon id="circle-dot" />
+                <Icon id="circle-dot" />
+                <Icon id="circle-dot" />
+                <Icon id="circle-dot" />
+            </div>
+            <!-- Snap container -->
+            <div id="scrollbox" class="
+                w-5/6 h-[calc(100vh-400px)]
+                snap-y snap-mandatory overflow-scroll">
+                <div class="snap-end h-[calc(100vh-400px)] flex flex-col overflow-x-hidden">
+                    <img src="/graphics/stats/stats-0.jpg" alt="">
+                    <p class="w-2/3 py-4">
+                        Since our project began, we have seen a rise in the number of families living in the Upper Peninsula of Michigan seeking help with a child battling cancer. <strong>As of December 2021, that number has increased by more than twenty-fold!</strong>
+                    </p>
+                </div>
+                <div class="snap-end h-[calc(100vh-400px)] flex flex-col overflow-x-hidden">
+                    <img src="/graphics/stats/stats-1.jpg" alt="">
+                    <p class="w-2/3 py-4">
+                        According to recent figures, 11,000 children in the U.S. were diagnosed with a form of cancer in 2020. Michigan diagnoses approximately 470 children per year with some form of cancer. At any given time there are approximately 2000 children in Michigan battling this dreadful disease. <strong>The Upper Peninsula of Michigan has the largest number of cases diagnosed per capita.</strong>
+                    </p>
+                </div>
+                <div class="snap-end h-[calc(100vh-400px)] flex flex-col overflow-x-hidden">
+                    <img src="/graphics/stats/stats-2.jpg" alt="">
+                    <p class="w-2/3 py-4">
+                        Within the past few decades, cancer research has produced promising treatments for pediatric cancer. 60% of children who have had cancer, have lifelong emotional, cognitive, physical, and developmental deficits. Key statistics for Childhood Cancers, The American Cancer Society's most recent estimates and statistics for cancer in children in the United States can be found here. <strong>Currently in the U.S., the recovery rate for childhood cancer is 84%.</strong>
+                    </p>
+                </div>
+                <div class="snap-end h-[calc(100vh-400px)] flex flex-col overflow-x-hidden">
+                    <img src="/graphics/stats/stats-3.jpg" alt="">
+                    <p class="w-2/3 py-4">
+                        The Childhood Cancer program has worked hard and received support from several organizations. Fundraisers and donations made by Lions, other organizations and individuals earned over $30,000. Tour Da Yoop, Eh earned over $50,000 in 2022. Graymont and Superior Health Foundation provided grants worth over $25,000. A Legacy Bequeathment has also provided funding. <strong>In total, The U.P. Lions Serve Childhood Cancer Program has raised over $100,000 through fundraisers, individual donations, and grants!</strong>
+                    </p>
+                </div>
+                <div class="snap-end h-[calc(100vh-400px)] flex flex-col overflow-x-hidden">
+                    <img src="/graphics/stats/stats-4.jpg" alt="">
+                    <p class="w-2/3 py-4">
+                        Families found by the Childhood Cancer program, distributed by county.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+        <img src="/images/landing-hero.jpg" alt="" class="
+            h-96 w-full" />
+    </section>
+    <Swoosh swooshNum={1} styles="-translate-y-56 scale-110 rotate-12 z-10"/>
+
+    <span class="block py-96"></span>
 </Layout>
+
+<script>
+    // const scrollbox: HTMLElement|null = document.getElementById("scrollbox")!
+    // console.log(scrollbox.getBoundingClientRect())
+    // console.log(window.onscroll)
+
+    // window.addEventListener("scroll", function(e) {
+    //     console.log(window.pageYOffset)
+    //     // console.log(Math.ceil(window.innerHeight - scrollbox.getBoundingClientRect().bottom));
+
+    //     if (Math.ceil(window.innerHeight - scrollbox.getBoundingClientRect().bottom) - 20 >= 0 && window.innerHeight - scrollbox.getBoundingClientRect().bottom < 100) {
+    //         scrollbox.classList.add("overflow-scroll")
+    //         scrollbox.classList.remove("overflow-hidden")
+            
+    //         window.onscroll = () => {
+    //             window.scrollTo({
+    //                 top: 2844
+    //             })
+    //         }
+    //     } else {
+    //         window.onscroll = null
+    //         scrollbox.classList.remove("overflow-scroll")
+    //         scrollbox.classList.add("overflow-hidden")
+    //     }
+    // })
+    
+</script>

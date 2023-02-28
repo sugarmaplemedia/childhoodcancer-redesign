@@ -6,6 +6,7 @@ const {
     description,
     nav = true,
     robots = true,
+    mainClasses = "",
     } = Astro.props;
 ---
 
@@ -30,7 +31,7 @@ const {
     <body class="
         text-navy">
         {nav ? <Navbar page={title} /> : <></> }
-        <main>
+        <main class={mainClasses}>
             <slot />
         </main>
     </body>

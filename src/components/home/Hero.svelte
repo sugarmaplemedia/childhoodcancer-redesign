@@ -8,12 +8,12 @@
 
     before:content-['']
     before:w-full before:h-full
-    before:absolute before:top-0 before:left-0
+    before:absolute before:top-0 before:left-0 before:-z-20
     before:bg-[url('/images/landing-hero.jpg')] before:bg-cover before:bg-center
     before:brightness-65 before:saturate-75
     ">
     <div class="
-        max-w-xl ml-24 pt-24 py-48
+        max-w-xl ml-24 pt-24 pb-48
         relative">
         <Heading size={1} color="white">
             Working every day<br />

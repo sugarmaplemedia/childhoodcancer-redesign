@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Heading from "./Heading.svelte"
+    import Headline from "./sub-components/Headline.svelte";
     import Button from "./Button.svelte";
 
     export let src: string|null = null
@@ -15,23 +15,10 @@
         width="640" height="480" 
         class="
             max-w-sm
-            rounded-3xl" />
+            rounded-3xl
+            drop-shadow-blue" />
     <div>
-        <Heading size={2}>
-            <slot name="title">
-                Section <span class="text-orange">Title</span>
-            </slot>
-        </Heading>
-        <div>
-            <hr class="
-                w-40 h-0.5 my-2 
-                bg-orange rounded-full
-                border-none"/>
-            <hr class="
-                w-24 h-0.5 my-2 
-                bg-orange-light rounded-full
-                border-none"/>
-        </div>
+        <Headline direction="left">Our <span class="text-orange">Mission</span></Headline>
         <div class="py-2 space-y-4 {$$slots.default ? "" : "bg-red"}">
             <slot>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate impedit, cumque consectetur itaque recusandae ipsam ut omnis ex distinctio repellat beatae tempora accusamus aut quae dolore, alias quam temporibus unde?</p>

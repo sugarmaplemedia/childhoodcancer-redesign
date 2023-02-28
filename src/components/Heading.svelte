@@ -24,8 +24,15 @@
     </h3>
 {:else if size == 4}
     <h4 class="
-        font-titles text-2xl {color ? `text-${color}` : "text-navy"}
+        font-sans font-black text-xl {color ? `text-${color}` : "text-navy"}
         {styling ? styling : ""}">
         <slot />
     </h4>
+    {:else if size == 6}
+    <h6 class="
+        opacity-60
+        font-sans text-sm {color ? `text-${color}` : "text-navy"}
+        {styling ? styling : ""}">
+        <slot />
+    </h6>
 {/if}
