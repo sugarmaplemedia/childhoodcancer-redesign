@@ -1,6 +1,7 @@
 <script lang="ts">
     export let swooshNum: number = 0
-    export let styles: string = ""
+    export let transform: string = ""
+    export let position: string = ""
 
     let src: string;
     if (swooshNum <= 0 || swooshNum > 16) {
@@ -9,17 +10,15 @@
         src = `/graphics/swooshes/Asset ${swooshNum}.svg`
     }
 
-    let position: string
-    switch (swooshNum) {
-        case 2:
-            position = "min-w-2400px -rotate-9 -left-8"
-            break
-        case 10:
-            position = "scale-110"
-    }
+    // switch (swooshNum) {
+    //     case 2:
+    //         position = "min-w-2400px"
+    //         break
+    //     case 10:
+    //         position = "scale-110"
+    // }
 </script>
 
-<img {src} alt=""
-    class="
-        absolute -z-10 {position}
-        {styles}"/>
+<div class="overflow-x-hidden {position} min-w-[1600px]">
+    <img {src} alt="" draggable="false" class={transform}/>
+</div>

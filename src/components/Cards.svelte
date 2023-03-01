@@ -31,7 +31,7 @@
             alt="Kids sitting around a campfire"
             href="/causes/camp-quality-michigan">
             <span slot="title">Camp Quality Michigan</span>
-            <span slot="text">Serving U.P. children with cancer and their families by providing year-round programs and experiences at no cost with camps throughout Michigan at 4 different locations.</span>
+            <span slot="text">Providing year-round programs and experiences at no cost with camps throughout Michigan at 4 different locations.</span>
         </Card>
         <Card
             src="/images/Kids-Kicking-Cancer-cover.jpg"
