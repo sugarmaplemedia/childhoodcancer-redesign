@@ -1,0 +1,53 @@
+---
+import ContactForm from "@components/contact/ContactForm.svelte";
+import Group from "@components/ContentPage/Group.svelte";
+import Icon from "@components/Icon.svelte";
+import ContentPageLayout from "@layouts/ContentPageLayout.astro";
+
+const CONTENT_WIDTH = "small"
+
+
+---
+
+<ContentPageLayout
+    title="Contact"
+    description="TODO: Description"
+    heroAlt="TODO">
+    <Group width={CONTENT_WIDTH} style="py-10 bg-navy-super-light rounded-2xl">
+        <h4>Message Us</h4>
+        <ContactForm client:load />
+    </Group>
+    <Group row width={CONTENT_WIDTH} style={`
+            py-10
+            justify-around
+            bg-orange-super-light rounded-2xl`}>
+        <div>
+            <h4 class="mb-2">Meet Us</h4>
+            <ul class="pl-4">
+                <a href="mailto:cc@uplionsserve.org">
+                    <li class="flex items-center gap-4">
+                        <Icon id="mail" styling="w-6 h-6 translate-y-0.5" /> <p>cc@uplionsserve.org</p>
+                    </li>
+                </a>
+            </ul>
+        </div>
+        <div>
+            <h4 class="mb-2">Mail Us</h4>
+            <ul class="pl-4">
+                <li class="flex items-center gap-4">
+                    <Icon id="location" styling="w-6 h-6" />
+                    <p>
+                        District 10 Lions<br />
+                        Childhood Cancer<br />
+                        PO BOX 107<br />
+                        Engadine, Michigan 49827
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </Group>
+</ContentPageLayout>
+
+<script>
+
+</script>

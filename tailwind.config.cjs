@@ -8,8 +8,9 @@ module.exports = {
           'white': '#FFFFFF',
           'orange': '#FFB419',
           'orange-light': '#FFE3A6',
+          'orange-super-light': '#FFF7E6',
           'navy': '#4B6496',
-          'navy-super-light': '#DEE8FC',
+          'navy-super-light': '#F0F5FE',
           'navy-light': '#85A7EB',
           'navy-dark': '#1F3155',
           'red': '#FF0000'

@@ -1,0 +1,66 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Heading from "@components/Heading.svelte";
+
+interface Props {
+    title: string;
+    description: string;
+    nav?: boolean;
+    robots?: boolean;
+    heroSrc?: string;
+    heroAlt: string;
+}
+
+const {
+    title,
+    description,
+    nav = true,
+    robots = true,
+    heroSrc = "https://placehold.co/1920x560.jpg",
+    heroAlt,
+    } = Astro.props;
+---
+
+<BaseLayout
+    title={title}
+    description={description}
+    nav={nav}
+    robots={robots}>
+    
+    <!-- HERO -->
+    <section class="w-full h-64 md:h-80 lg:h-96">
+        <div class="
+                w-full
+                flex flex-col items-center">
+            <div class="
+                    w-full pt-12 pb-8
+                    bg-white">
+                <Heading size={1} align={"center"}>{title}</Heading>
+            </div>
+            <img
+                src={`${heroSrc.startsWith('/') ? import.meta.env.BASE_URL : ''}${heroSrc}`} alt={heroAlt}
+                width="640" height="480"
+                class="
+                    w-full
+                    fixed top-[3.25rem] -z-20
+                    scale-150"/>
+            <div class="w-full h-48 sm:h-64 lg:h-[30rem]">
+            </div>
+        </div>
+        <img 
+            src={`${import.meta.env.BASE_URL}/graphics/swooshes/Asset 8.svg`} alt=""
+            class="
+                -mb-52 sm:-mb-72 md:-mb-80
+                relative z-10
+                lg:relative lg:-top-[8.6rem]
+                -translate-y-[67%] -rotate-[4deg] scale-150 sm:-translate-y-[86%] md:-translate-y-[64%]
+                pointer-events-none">
+    </section>
+
+    <article class="
+            w-full py-12 lg:pt-24
+            flex flex-col items-center gap-10
+            bg-white">
+        <slot />
+    </article>
+</BaseLayout>
