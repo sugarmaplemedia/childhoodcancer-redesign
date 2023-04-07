@@ -23,7 +23,9 @@
             <slot name="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad facilis deserunt sed sunt illo rem magni debitis reiciendis nesciunt repellendus, culpa a, veritatis voluptatem dignissimos! Reiciendis eligendi blanditiis architecto reprehenderit optio voluptas facilis tenetur nemo quia recusandae vitae nostrum consequatur repudiandae consectetur iste quibusdam dicta perspiciatis, quas quis! Autem, voluptatum?</slot>
         </p>
     </div>
-    <Heading size={6} styling="pb-4"><em>Click to view more information.</em></Heading>
+    <span class="pb-4">
+        <Heading size={6}><em>Click to view more information.</em></Heading>
+    </span>
     <div class="w-full">
         <hr class="h-4
             bg-orange-light

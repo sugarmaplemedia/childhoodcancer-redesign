@@ -43,7 +43,7 @@
     {/if}
     
     {#if size == 1}
-    <h1><slot /></h1>
+    <h1 class={textColor}><slot /></h1>
     {:else if size == 2}
     <h2><slot /></h2>
     {:else if size == 3}

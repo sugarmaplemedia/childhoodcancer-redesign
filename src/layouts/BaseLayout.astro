@@ -1,4 +1,5 @@
 ---
+import Navbar from "@components/Navbar/Navbar.svelte";
 import "../base.css";
 
 interface Props {
@@ -36,7 +37,7 @@ const {
         <!-- <script src="https://donorbox.org/widget.js" paypalExpress="false"></script> -->
     </head>
     <body class="text-navy">
-        <!-- {nav ? <Navbar page={title} /> : <></> } -->
+        {nav ? <Navbar page={title} /> : <></> }
         <main class="
                 flex flex-col items-center gap-12
                 overflow-x-hidden">

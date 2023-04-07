@@ -7,7 +7,7 @@
     if (swooshNum <= 0 || swooshNum > 16) {
         console.log("Incorrect swoosh selection. Select a number between 1 and 16.")
     } else {
-        src = `/graphics/swooshes/Asset ${swooshNum}.svg`
+        src = `${import.meta.env.BASE_URL}/graphics/swooshes/Asset ${swooshNum}.svg`
     }
 
     // switch (swooshNum) {

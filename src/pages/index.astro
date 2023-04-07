@@ -1,11 +1,11 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Layout from "@layouts/BaseLayout.astro";
 import Hero from "@components/home/Hero.svelte";
 import Swoosh from "@components/Swoosh.svelte";
 import StatsDisplay from "@components/home/StatsDisplay.svelte";
 import MediaAndText from "@components/MediaAndText.svelte";
 import Button from "@components/Button.svelte";
-import Cards from "@components/Cards.svelte";
+import Card from "@components/sub-components/Card.svelte";
 import Headline from "@components/sub-components/Headline.svelte";
 import Icon from "@components/Icon.svelte";
 import Heading from "@components/Heading.svelte";
@@ -14,21 +14,93 @@ import Heading from "@components/Heading.svelte";
 <Layout
     title="U.P. Lions Serve: Childhood Cancer"
     description="Working every day to raise funds for Upper Peninsula families battling childhood cancer, the U.P. Lions Serve: Childhood Cancer program assembles initiatives to assist these families in paying for travel, medical, and household bills. We provide resources and connect families with life-changing programs, including Camp Quality, Maggie’s Wigs 4 Kids, and Kids Kicking Cancer.">
-    <Hero />
-    <Swoosh swooshNum={2} transform="  " position="-mt-[15rem] z-10 scale-110 -rotate-9 -left-8" />
+    <section class="
+            w-full -mb-16
+            relative
+
+            before:content-['']
+            before:w-full before:h-full
+            before:absolute before:top-0 before:left-0 before:-z-20
+            before:bg-[url('/childhood-cancer/images/landing-hero.jpg')] before:bg-cover before:bg-center
+            before:brightness-65 before:saturate-75">
+        <div class="
+                max-w-xl ml-24 pt-24 pb-48
+                relative">
+            <Heading size={1} color="orange">
+                Working every day<br />
+                <span class="
+                        block w-96 py-2
+                        text-2xl text-white">
+                    to fundraise for U.P. families battling <span class="text-orange">childhood cancer.</span>
+                </span>
+            </Heading>
+            <p class="
+                    pt-2 pb-6
+                    font-sans font-medium text-white">
+                    Since our project began, we have seen a rise in the number of families living in the Upper Peninsula of Michigan seeking help with a child battling cancer. As of December 2022, that number has increased by more <span class="font-bold text-orange">than twenty-fold!</span>
+                </p>
+            <Button>Join the fight</Button>
+        </div>
+        <div class="
+                min-w-[1600px] -mt-[15rem]
+                absolute z-10 overflow-x-hidden
+                scale-110 -rotate-9 -left-8">
+            <img src={`${import.meta.env.BASE_URL}/graphics/swooshes/Asset 2.svg`} alt="" draggable="false" class="" />
+        </div>
+    </section>
+
+
+
     <!-- Todo: Make stats bubble pop-up to expand upon info -->
     <StatsDisplay />
-    <MediaAndText src="/images/canDrive5-compressed.jpg">
+    <MediaAndText src={import.meta.env.BASE_URL + "/images/canDrive5-compressed.jpg"}>
         <span slot="title">
             Our <span class="text-orange">Mission</span>
         </span>
         <p>Is to serve children and families from the Upper Peninsula who are battling childhood cancer. Our program assembles initiatives to help these families meet financial needs for travel, medical, and household bills.</p>
         <Button href="/about#mission">Learn more</Button>
     </MediaAndText>
-    <Cards />
+
+
+
+    <section class="
+        pb-8
+        flex flex-col items-center">
+        <Headline>Our <span class="text-orange">Initiatives</span></Headline>
+        <p class="pt-2 pb-8">We share information and connect families to other nonprofits that may help, either in-person or remotely.</p>
+        <div class="
+            max-w-4xl
+            grid grid-cols-3 gap-6">
+            <Card
+                src={`${import.meta.env.BASE_URL}/images/Maggies-Wigs-4-Kids-cover.jpg`}
+                alt="Wigs along a wall"
+                href="/initiatives/maggies-wigs-4-kids">
+                <span slot="title">Maggies Wigs 4 Kids</span>
+                <span slot="text">Providing hair and skin restoration services to our children in the U.P.</span>
+            </Card>
+            <Card
+                src={`${import.meta.env.BASE_URL}/images/Camp-Quality-cover.jpg`}
+                alt="Kids sitting around a campfire"
+                href="/initiatives/camp-quality-michigan">
+                <span slot="title">Camp Quality Michigan</span>
+                <span slot="text">Providing year-round programs and experiences at no cost with camps throughout Michigan at 4 different locations.</span>
+            </Card>
+            <Card
+                src={`${import.meta.env.BASE_URL}/images/Kids-Kicking-Cancer-cover.jpg`}
+                alt="Kids in karate position in a dojo"
+                href="/initiatives/kids-kicking-cancer">
+                <span slot="title">Kids Kicking Cancer</span>
+                <span slot="text">Providing martial arts and meditation/pain control classes to U.P. children and their siblings.</span>
+            </Card>
+        </div>
+    </section>
+    
+
+
+
     <section class="pt-96">
         <img 
-            src="/images/Rylan.jpg"
+            src={`${import.meta.env.BASE_URL}/images/Rylan.jpg`}
             alt="Boy on a swingset"
             class="
                 max-w-xl
@@ -86,31 +158,31 @@ import Heading from "@components/Heading.svelte";
                 w-5/6 h-[calc(100vh-100px)]
                 snap-y snap-mandatory overflow-scroll">
                 <div class="snap-end h-[calc(100vh-100px)] flex flex-col overflow-x-hidden">
-                    <img src="/graphics/stats/stats-0.jpg" alt="">
+                    <img src={`${import.meta.env.BASE_URL}/graphics/stats/stats-0.jpg`} alt="">
                     <p class="w-2/3 py-4">
                         Since our project began, we have seen a rise in the number of families living in the Upper Peninsula of Michigan seeking help with a child battling cancer. <strong>As of December 2021, that number has increased by more than twenty-fold!</strong>
                     </p>
                 </div>
                 <div class="snap-end h-[calc(100vh-100px)] flex flex-col overflow-x-hidden">
-                    <img src="/graphics/stats/stats-1.jpg" alt="">
+                    <img src={`${import.meta.env.BASE_URL}/graphics/stats/stats-1.jpg`} alt="">
                     <p class="w-2/3 py-4">
                         According to recent figures, 11,000 children in the U.S. were diagnosed with a form of cancer in 2020. Michigan diagnoses approximately 470 children per year with some form of cancer. At any given time there are approximately 2000 children in Michigan battling this dreadful disease. <strong>The Upper Peninsula of Michigan has the largest number of cases diagnosed per capita.</strong>
                     </p>
                 </div>
                 <div class="snap-end h-[calc(100vh-100px)] flex flex-col overflow-x-hidden">
-                    <img src="/graphics/stats/stats-2.jpg" alt="">
+                    <img src={`${import.meta.env.BASE_URL}/graphics/stats/stats-2.jpg`} alt="">
                     <p class="w-2/3 py-4">
                         Within the past few decades, cancer research has produced promising treatments for pediatric cancer. 60% of children who have had cancer, have lifelong emotional, cognitive, physical, and developmental deficits. Key statistics for Childhood Cancers, The American Cancer Society's most recent estimates and statistics for cancer in children in the United States can be found here. <strong>Currently in the U.S., the recovery rate for childhood cancer is 84%.</strong>
                     </p>
                 </div>
                 <div class="snap-end h-[calc(100vh-100px)] flex flex-col overflow-x-hidden">
-                    <img src="/graphics/stats/stats-3.jpg" alt="">
+                    <img src={`${import.meta.env.BASE_URL}/graphics/stats/stats-3.jpg`} alt="">
                     <p class="w-2/3 py-4">
                         The Childhood Cancer program has worked hard and received support from several organizations. Fundraisers and donations made by Lions, other organizations and individuals earned over $30,000. Tour Da Yoop, Eh earned over $50,000 in 2022. Graymont and Superior Health Foundation provided grants worth over $25,000. A Legacy Bequeathment has also provided funding. <strong>In total, The U.P. Lions Serve Childhood Cancer Program has raised over $100,000 through fundraisers, individual donations, and grants!</strong>
                     </p>
                 </div>
                 <div class="snap-end h-[calc(100vh-400px)] flex flex-col overflow-x-hidden">
-                    <img src="/graphics/stats/stats-4.jpg" alt="">
+                    <img src={`${import.meta.env.BASE_URL}/graphics/stats/stats-4.jpg`} alt="">
                     <p class="w-2/3 py-4">
                         Families found by the Childhood Cancer program, distributed by county.
                     </p>
@@ -119,24 +191,31 @@ import Heading from "@components/Heading.svelte";
         </div>
     </section>
 
-    <Swoosh swooshNum={2} position="-mb-[20rem] translate-x-12 scale-110 rotate-180"/>
     <!-- CTA -->
     <section 
         aria-label="Drone image of Great Lakes shore. Photo by Lucas Ludwig on Unsplash"
         class="
+            w-full
             relative
 
             before:content-['']
             before:w-full before:h-full
             before:absolute before:top-0 before:left-0 before:-z-20
-            before:bg-[url('/images/GreatLakes-0.1q.jpg')] before:bg-cover before:bg-center
+            before:bg-[url('/childhood-cancer/images/GreatLakes-0.1q.jpg')] before:bg-cover before:bg-center
             before:brightness-65 before:saturate-75
             ">
+        <div class="
+                min-w-[1600px]
+                absolute z-10 overflow-x-hidden
+                translate-x-12 -translate-y-16 rotate-180 scale-110
+                pointer-events-none">
+            <img src={`${import.meta.env.BASE_URL}/graphics/swooshes/Asset 2.svg`} alt="" draggable="false" />
+        </div>
         <div class="
             max-w-xl ml-24 pb-24 pt-36
             relative">
             <Heading size={2} color="white">
-                Michigan is <span class="text-orange">5th in the nation</span><br />
+                <span class="text-orange">Michigan is 5th in the nation</span><br />
                 <span class="
                     block w-96 py-2
                     text-2xl text-white">
