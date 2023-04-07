@@ -1,26 +1,32 @@
 <script lang="ts">
     export let activePage: boolean
     export let href: string
-    export let animate: boolean = true
+    export let dropdown: boolean = false
 
-    let isActive: string
-    $: {
-        isActive = activePage ? "after:bg-orange" : "after:scale-x-0 hover:after:scale-x-100 after:bg-navy-light"
-    }
 </script>
 
-<li class="
-    pt-1
-    relative z-10
-    {animate ? "hover:translate-y-0.5 transition-all" : ""}">
-    <a href={activePage ? "#top" : href}
+<li 
+    on:click on:keypress
+    class="
+        pt-1
+        flex justify-center
+        relative z-10
+        {dropdown ? "w-[16rem]" : ""}
+        {!dropdown && !activePage ? "md:hover:translate-y-0.5 md:transition-all" : ""}">
+    <a 
+        href={activePage ? "#top" : href}
         class="
-            {animate ? `
-                after:block after:h-0.5 after:mx-2 
-                after:rounded-full
-                after:transition-all
-            `: ""}
-            {isActive}">
+            {!dropdown
+                ? `after:block after:h-0.5 after:mx-2 prefers
+                   after:rounded-full
+                   after:transition-all`
+                : `w-full px-6 pt-4 pb-2
+                   flex justify-center
+                   rounded-md hover:bg-navy-super-light
+                   transition-all duration-75`}
+            {activePage
+                ? `text-orange after:bg-orange after:scale-x-[1.25]`
+                : `after:bg-navy-light after:scale-x-0 md:hover:after:scale-x-100`}">
         <slot />
     </a>
 </li>

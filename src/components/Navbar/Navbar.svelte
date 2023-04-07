@@ -1,22 +1,70 @@
-<script>
+<script lang="ts">
     import MenuLink from "./MenuLink.svelte"
     import Folder from "./Folder.svelte";
     import Spacer from "./Spacer.svelte";
 
-    export let page
+    export let page: string
+
+    let hamburger: HTMLElement
+    let MOBILE_MENU_IS_OPEN = true
+    enum MenuStates {
+        OPEN,
+        CLOSE,
+        TOGGLE
+    }
+    const openMenu = (state: MenuStates) => {
+        switch (state) {
+            case MenuStates.OPEN:
+                MOBILE_MENU_IS_OPEN = true
+                break
+            case MenuStates.CLOSE:
+                MOBILE_MENU_IS_OPEN = false
+                break
+            case MenuStates.TOGGLE:
+                MOBILE_MENU_IS_OPEN = !MOBILE_MENU_IS_OPEN
+                break
+        }
+    }
+
+    let EVENTS_IS_OPEN = true
+    let INITIATIVES_IS_OPEN = true
+    let RESOURCES_IS_OPEN = true
+    const toggleFolder = (folder: "events"|"initiatives"|"resources") => {
+        switch (folder) {
+            case "events":
+                EVENTS_IS_OPEN = !EVENTS_IS_OPEN
+                break
+            case "initiatives":
+                INITIATIVES_IS_OPEN = !INITIATIVES_IS_OPEN
+                break
+            case "resources":
+                RESOURCES_IS_OPEN = !RESOURCES_IS_OPEN
+                break
+        }
+        console.log(EVENTS_IS_OPEN, INITIATIVES_IS_OPEN, RESOURCES_IS_OPEN)
+    }
+
 </script>
 
 <nav class="
-    w-full
-    sticky top-0 z-50
-    flex justify-between
-    bg-white
-    font-menu uppercase font-medium text-xl">
-    <!-- <a href="https://uplionsserve.org">Back</a> -->
-    <a href="/" class="
-        w-52 hover:pt-2
-        absolute left-20 top-4 z-10
-        hover:cursor-pointer
+        w-full h-20
+        sticky top-0 z-50
+        flex justify-center items-center
+        bg-white
+        font-menu uppercase font-medium text-xl">
+    <a 
+        href="https://uplionsserve.org"
+        class="
+            w-8 h-8 mr-32
+            fill-orange
+            -translate-y-0.5">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+    </a>
+    <a href={`${import.meta.env.BASE_URL}`} class="
+        w-52 mx-auto lg:w-52 lg:hover:pt-2
+        absolute top-4 z-10 lg:left-20 lg:top-4 
+        lg:hover:cursor-pointer
         transition-all bounce">
         <svg viewBox="0 0 422.99 230.95">
             <defs>
@@ -110,57 +158,110 @@
             </g>
           </svg>
     </a>
-    <ul class="relative
-        flex grow justify-left
-         pl-80 space-x-6 pt-12 pb-4
-        text-navy">
-        <span class="group">
-            <MenuLink activePage={page == "Programs"} href="/programs">Programs</MenuLink>
-            <Folder location="left-programs">
-                <h2 class="
-                    font-titles text-2xl pb-1">
-                    Events
-                </h2>
-                <MenuLink activePage={page == "Programs"} href="/programs/tour-da-yoop-eh" animate={false}>Tour Da Yoop, Eh</MenuLink>
+    <span 
+        bind:this={hamburger}
+        on:click={() => openMenu(MenuStates.TOGGLE)}
+        on:keypress={(e) => e.key == "Enter" && openMenu(MenuStates.TOGGLE)}
+        tabindex="0" role="button" aria-label="Menu"
+        class="
+            w-8 h-8 ml-32 py-1
+            flex flex-col justify-between
+            cursor-pointer">
+            <hr class="w-full h-[0.33rem] border-none bg-orange rounded-full" >
+            <hr class="w-full h-[0.33rem] border-none bg-orange rounded-full" >
+            <hr class="w-full h-[0.33rem] border-none bg-orange rounded-full" >
+    </span>
+    <ul class="
+            w-full h-[calc(100vh-5rem)] lg:pl-80 lg:pt-12 lg:pb-4
+            flex flex-col justify-center gap-12 lg:flex-row lg:grow lg:justify-left lg:gap-6
+            fixed top-20 lg:relative
+            bg-offwhite
+            text-navy text-3xl
+            transition-all
+            {MOBILE_MENU_IS_OPEN ? `translate-x-0` : `translate-x-full`}">
+        <span class="group
+                relative
+                flex justify-center items-center gap-4 lg:block">
+            <MenuLink
+                activePage={page == "Events"}
+                href={`${import.meta.env.BASE_URL}/programs#events`}>Events</MenuLink>
+            <figure
+                on:click={() => toggleFolder("events")}
+                on:keypress={(e) => e.key == "Enter" && toggleFolder("events")}
+                class="
+                    w-4 h-4 fill-navy -translate-y-1.5
+                    origin-[50%_70%]
+                    transition-all
+                    {!EVENTS_IS_OPEN ? "rotate-0" : "-rotate-90"}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
+            </figure>
+            <Folder position="-left-40">
+                <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh`} dropdown>Tour Da Yoop, Eh</MenuLink>
                 <Spacer />
-                <MenuLink activePage={page == "Programs"} href="/programs/shf-annual-gala" animate={false}>SHF Annual Gala</MenuLink>
-                <h2 class="
-                    font-titles text-2xl pt-2 pb-1">
-                    Initiatives
-                </h2>
-                <MenuLink activePage={page == "Programs"} href="/programs/tour-da-yoop-eh" animate={false}>Camp Quality Michigan</MenuLink>
-                <Spacer />
-                <MenuLink activePage={page == "Programs"} href="/programs/tour-da-yoop-eh" animate={false}>Maggies Wigs 4 Kids</MenuLink>
-                <Spacer />
-                <MenuLink activePage={page == "Programs"} href="/programs/tour-da-yoop-eh" animate={false}>Kids Kicking Cancer</MenuLink>
+                <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/shf-annual-gala`} dropdown>SHF Annual Gala</MenuLink>
             </Folder>
         </span>
-        <span class="group">
-            <MenuLink activePage={page == "Resources"} href="/resources">Resources</MenuLink>
-            <Folder location="left-resources">
-                <MenuLink activePage={page == "Resources"} href="/resources/articles" animate={false}>Articles</MenuLink>
+        <span class="group
+                relative
+                flex justify-center items-center gap-4 lg:block">
+            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs#initiatives`}>Initiatives</MenuLink>
+            <figure
+                on:click={() => toggleFolder("initiatives")}
+                on:keypress={(e) => e.key == "Enter" && toggleFolder("initiatives")}
+                class="
+                    w-4 h-4 fill-navy -translate-y-1.5
+                    origin-[50%_70%]
+                    transition-all
+                    {!INITIATIVES_IS_OPEN ? "rotate-0" : "-rotate-90"}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
+            </figure>
+            <Folder position="-left-36">
+                <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/camp-quality`} dropdown>Camp Quality</MenuLink>
                 <Spacer />
-                <MenuLink activePage={page == "Resources"} href="/resources/press-center" animate={false}>Press Center</MenuLink>
+                <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/maggies-wigs-4-kids`} dropdown>Maggies Wigs 4 Kids</MenuLink>
                 <Spacer />
-                <MenuLink activePage={page == "Resources"} href="/resources/photo-gallery" animate={false}>Photo Gallery</MenuLink>
-                <Spacer />
-                <MenuLink activePage={page == "Resources"} href="/resources/learn" animate={false}>Learn</MenuLink>
+                <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/kids-kicking-cancer`} dropdown>Kids Kicking Cancer</MenuLink>
             </Folder>
         </span>
-        <MenuLink activePage={page == "About"} href="/about">About</MenuLink>
-        <MenuLink activePage={page == "Get Help"} href="/get-help">Get Help</MenuLink>
+        <span class="group
+                relative
+                flex justify-center items-center gap-4 lg:block">
+            <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources`}>Resources</MenuLink>
+            <figure
+                on:click={() => toggleFolder("resources")}
+                on:keypress={(e) => e.key == "Enter" && toggleFolder("resources")}
+                class="
+                    w-4 h-4 fill-navy -translate-y-1.5
+                    origin-[50%_70%]
+                    transition-all
+                    {!RESOURCES_IS_OPEN ? "rotate-0" : "-rotate-90"}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
+            </figure>
+            <Folder position="-left-36">
+                <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/articles`} dropdown>Articles</MenuLink>
+                <Spacer />
+                <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/press-center`} dropdown>Press Center</MenuLink>
+                <Spacer />
+                <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/photo-gallery`} dropdown>Photo Gallery</MenuLink>
+                <Spacer />
+                <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/learn`} dropdown>Learn</MenuLink>
+            </Folder>
+        </span>
+        <MenuLink activePage={page == "About"} href={`${import.meta.env.BASE_URL}/about`}>About</MenuLink>
+        <MenuLink activePage={page == "Get Help"} href={`${import.meta.env.BASE_URL}/get-help`}>Get Help</MenuLink>
     </ul>
-    <a href="/donate" class="group
-        px-8 pt-12 pb-4
-        bg-orange hover:bg-navy-light
-        text-white
-        transition-all">
+    <a 
+        href={`${import.meta.env.BASE_URL}/donate`}
+        class="group
+            hidden lg:block px-8 pt-12 pb-4
+            bg-orange hover:bg-navy-light
+            text-white
+            transition-all">
         <ul>
-            <li class="
-                group-hover:translate-y-0.5
-                transition-all">
-                Donate
-            </li>
+            <li class=" group-hover:translate-y-0.5 transition-all">Donate</li>
         </ul>
-    </a>
+    </a> 
 </nav>

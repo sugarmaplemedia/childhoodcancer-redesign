@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Heading from "@components/Heading.svelte";
+import Group from "@components/ContentPage/Group.svelte";
 
 interface Props {
     title: string;
@@ -28,21 +29,16 @@ const {
     robots={robots}>
     
     <!-- HERO -->
-    <section class="w-full h-64 md:h-80 lg:h-96">
+    <section class="w-full h-36 md:h-48 lg:h-64">
         <div class="
                 w-full
                 flex flex-col items-center">
-            <div class="
-                    w-full pt-12 pb-8
-                    bg-white">
-                <Heading size={1} align={"center"}>{title}</Heading>
-            </div>
             <img
                 src={`${heroSrc.startsWith('/') ? import.meta.env.BASE_URL : ''}${heroSrc}`} alt={heroAlt}
                 width="640" height="480"
                 class="
                     w-full
-                    fixed top-[3.25rem] -z-20
+                    fixed top-16 -z-20 md:top-10 lg:-top-8 xl:-top-20 
                     scale-150"/>
             <div class="w-full h-48 sm:h-64 lg:h-[30rem]">
             </div>
@@ -53,14 +49,17 @@ const {
                 -mb-52 sm:-mb-72 md:-mb-80
                 relative z-10
                 lg:relative lg:-top-[8.6rem]
-                -translate-y-[67%] -rotate-[4deg] scale-150 sm:-translate-y-[86%] md:-translate-y-[64%]
+                -translate-y-[60%] -rotate-[4deg] scale-150 sm:-translate-y-[80%] md:-translate-y-[64%]
                 pointer-events-none">
     </section>
 
     <article class="
-            w-full py-12 lg:pt-24
+            w-full py-12 lg:pt-16
             flex flex-col items-center gap-10
-            bg-white">
+            bg-offwhite">
+        <Group>
+            <Heading size={1}>{title}</Heading>
+        </Group>
         <slot />
     </article>
 </BaseLayout>

@@ -5,7 +5,8 @@ module.exports = {
         colors: {
           transparent: 'transparent',
           current: 'currentColor',
-          'white': '#FFFFFF',
+          'white': '#FFF',
+          'offwhite': '#FDF5F5',
           'orange': '#FFB419',
           'orange-light': '#FFE3A6',
           'orange-super-light': '#FFF7E6',

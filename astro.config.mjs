@@ -15,6 +15,5 @@ export default defineConfig({
         })
     ],
     base: "/childhood-cancer",
-    output: 'server',
     trailingSlash: "never",
 });

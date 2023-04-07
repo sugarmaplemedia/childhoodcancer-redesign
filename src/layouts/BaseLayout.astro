@@ -14,7 +14,6 @@ const {
     description,
     nav = true,
     robots = true,
-    mainClasses = "",
     } = Astro.props;
 ---
 
@@ -37,7 +36,7 @@ const {
         <!-- <script src="https://donorbox.org/widget.js" paypalExpress="false"></script> -->
     </head>
     <body class="text-navy">
-        {nav ? <Navbar page={title} /> : <></> }
+        {nav && <Navbar page={title} client:load /> }
         <main class="
                 flex flex-col items-center gap-12
                 overflow-x-hidden">
