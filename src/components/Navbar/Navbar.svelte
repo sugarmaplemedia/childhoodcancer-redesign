@@ -2,6 +2,7 @@
     import MenuLink from "./MenuLink.svelte"
     import Folder from "./Folder.svelte";
     import Spacer from "./Spacer.svelte";
+    import NavFolder from "./NavFolder.svelte";
 
     export let page: string
 
@@ -25,25 +26,7 @@
                 break
         }
     }
-
-    let EVENTS_IS_OPEN = true
-    let INITIATIVES_IS_OPEN = true
-    let RESOURCES_IS_OPEN = true
-    const toggleFolder = (folder: "events"|"initiatives"|"resources") => {
-        switch (folder) {
-            case "events":
-                EVENTS_IS_OPEN = !EVENTS_IS_OPEN
-                break
-            case "initiatives":
-                INITIATIVES_IS_OPEN = !INITIATIVES_IS_OPEN
-                break
-            case "resources":
-                RESOURCES_IS_OPEN = !RESOURCES_IS_OPEN
-                break
-        }
-        console.log(EVENTS_IS_OPEN, INITIATIVES_IS_OPEN, RESOURCES_IS_OPEN)
-    }
-
+    
 </script>
 
 <nav class="
@@ -179,77 +162,36 @@
             text-navy text-3xl
             transition-all
             {MOBILE_MENU_IS_OPEN ? `translate-x-0` : `translate-x-full`}">
-        <span class="group
-                relative
-                flex justify-center items-center gap-4 lg:block">
-            <MenuLink
-                activePage={page == "Events"}
-                href={`${import.meta.env.BASE_URL}/programs#events`}>Events</MenuLink>
-            <figure
-                on:click={() => toggleFolder("events")}
-                on:keypress={(e) => e.key == "Enter" && toggleFolder("events")}
-                class="
-                    w-4 h-4 fill-navy -translate-y-1.5
-                    origin-[50%_70%]
-                    transition-all
-                    {!EVENTS_IS_OPEN ? "rotate-0" : "-rotate-90"}">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                        <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
-            </figure>
-            <Folder position="-left-40">
-                <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh`} dropdown>Tour Da Yoop, Eh</MenuLink>
-                <Spacer />
-                <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/shf-annual-gala`} dropdown>SHF Annual Gala</MenuLink>
-            </Folder>
-        </span>
-        <span class="group
-                relative
-                flex justify-center items-center gap-4 lg:block">
-            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs#initiatives`}>Initiatives</MenuLink>
-            <figure
-                on:click={() => toggleFolder("initiatives")}
-                on:keypress={(e) => e.key == "Enter" && toggleFolder("initiatives")}
-                class="
-                    w-4 h-4 fill-navy -translate-y-1.5
-                    origin-[50%_70%]
-                    transition-all
-                    {!INITIATIVES_IS_OPEN ? "rotate-0" : "-rotate-90"}">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                    <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
-            </figure>
-            <Folder position="-left-36">
-                <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/camp-quality`} dropdown>Camp Quality</MenuLink>
-                <Spacer />
-                <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/maggies-wigs-4-kids`} dropdown>Maggies Wigs 4 Kids</MenuLink>
-                <Spacer />
-                <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/kids-kicking-cancer`} dropdown>Kids Kicking Cancer</MenuLink>
-            </Folder>
-        </span>
-        <span class="group
-                relative
-                flex justify-center items-center gap-4 lg:block">
-            <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources`}>Resources</MenuLink>
-            <figure
-                on:click={() => toggleFolder("resources")}
-                on:keypress={(e) => e.key == "Enter" && toggleFolder("resources")}
-                class="
-                    w-4 h-4 fill-navy -translate-y-1.5
-                    origin-[50%_70%]
-                    transition-all
-                    {!RESOURCES_IS_OPEN ? "rotate-0" : "-rotate-90"}">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                    <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
-            </figure>
-            <Folder position="-left-36">
-                <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/articles`} dropdown>Articles</MenuLink>
-                <Spacer />
-                <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/press-center`} dropdown>Press Center</MenuLink>
-                <Spacer />
-                <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/photo-gallery`} dropdown>Photo Gallery</MenuLink>
-                <Spacer />
-                <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/learn`} dropdown>Learn</MenuLink>
-            </Folder>
-        </span>
+        <NavFolder
+            href={`${import.meta.env.BASE_URL}/programs#events`}
+            {page} pageCheck="Events"
+            position="-left-40">
+            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh`} dropdown>Tour Da Yoop, Eh</MenuLink>
+            <Spacer />
+            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/shf-annual-gala`} dropdown>SHF Annual Gala</MenuLink>
+        </NavFolder>
+        <NavFolder
+            href={`${import.meta.env.BASE_URL}/programs#initiatives`}
+            {page} pageCheck="Initiatives"
+            position="-left-36">
+            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/camp-quality`} dropdown>Camp Quality</MenuLink>
+            <Spacer />
+            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/maggies-wigs-4-kids`} dropdown>Maggies Wigs 4 Kids</MenuLink>
+            <Spacer />
+            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/kids-kicking-cancer`} dropdown>Kids Kicking Cancer</MenuLink>
+        </NavFolder>
+        <NavFolder
+            href={`${import.meta.env.BASE_URL}/resources`}
+            {page} pageCheck="Resources"
+            position="-left-36">
+            <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/articles`} dropdown>Articles</MenuLink>
+            <Spacer />
+            <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/press-center`} dropdown>Press Center</MenuLink>
+            <Spacer />
+            <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/photo-gallery`} dropdown>Photo Gallery</MenuLink>
+            <Spacer />
+            <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/learn`} dropdown>Learn</MenuLink>
+        </NavFolder>
         <MenuLink activePage={page == "About"} href={`${import.meta.env.BASE_URL}/about`}>About</MenuLink>
         <MenuLink activePage={page == "Get Help"} href={`${import.meta.env.BASE_URL}/get-help`}>Get Help</MenuLink>
     </ul>
