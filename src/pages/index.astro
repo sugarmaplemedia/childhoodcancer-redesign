@@ -1,22 +1,20 @@
 ---
 import Layout from "@layouts/BaseLayout.astro";
-import Hero from "@components/home/Hero.svelte";
 import Swoosh from "@components/Swoosh.svelte";
 import StatsDisplay from "@components/home/StatsDisplay.svelte";
 import MediaAndText from "@components/MediaAndText.svelte";
 import Button from "@components/Button.svelte";
-import Card from "@components/sub-components/Card.svelte";
-import Headline from "@components/sub-components/Headline.svelte";
+import Headline from "@components/fragments/Headline.svelte";
 import Icon from "@components/Icon.svelte";
 import Heading from "@components/Heading.svelte";
+import Cards from "@components/sections/Cards.svelte";
 ---
 
 <Layout
     title="U.P. Lions Serve: Childhood Cancer"
     description="Working every day to raise funds for Upper Peninsula families battling childhood cancer, the U.P. Lions Serve: Childhood Cancer program assembles initiatives to assist these families in paying for travel, medical, and household bills. We provide resources and connect families with life-changing programs, including Camp Quality, Maggie’s Wigs 4 Kids, and Kids Kicking Cancer.">
     
-    
-    
+    <!-- TODO: Convert into section component for home page -->
     <section class="
             w-full xl:h-auto mb-16 xl:-mb-16
             relative
@@ -48,11 +46,11 @@ import Heading from "@components/Heading.svelte";
 
 
 
-    <!-- Todo: Make stats bubble pop-up to expand upon info -->
+    <!-- TODO: Add paragraph content, clean up appearance -->
     <StatsDisplay client:load />
 
 
-
+    <!-- TODO: Clean up formatting, code -->
     <MediaAndText src={import.meta.env.BASE_URL + "/images/canDrive5-compressed.jpg"}>
         <span slot="title">
             Our <span class="text-orange">Mission</span>
@@ -60,44 +58,13 @@ import Heading from "@components/Heading.svelte";
         <p>Is to serve children and families from the Upper Peninsula who are battling childhood cancer. Our program assembles initiatives to help these families meet financial needs for travel, medical, and household bills.</p>
         <Button href="/about#mission">Learn more</Button>
     </MediaAndText>
-
-
-
-    <section class="
-        pb-8
-        flex flex-col items-center">
-        <Headline>Our <span class="text-orange">Initiatives</span></Headline>
-        <p class="pt-2 pb-8">We share information and connect families to other nonprofits that may help, either in-person or remotely.</p>
-        <div class="
-            max-w-4xl
-            grid grid-cols-3 gap-6">
-            <Card
-                src={`${import.meta.env.BASE_URL}/images/Maggies-Wigs-4-Kids-cover.jpg`}
-                alt="Wigs along a wall"
-                href="/initiatives/maggies-wigs-4-kids">
-                <span slot="title">Maggies Wigs 4 Kids</span>
-                <span slot="text">Providing hair and skin restoration services to our children in the U.P.</span>
-            </Card>
-            <Card
-                src={`${import.meta.env.BASE_URL}/images/Camp-Quality-cover.jpg`}
-                alt="Kids sitting around a campfire"
-                href="/initiatives/camp-quality-michigan">
-                <span slot="title">Camp Quality Michigan</span>
-                <span slot="text">Providing year-round programs and experiences at no cost with camps throughout Michigan at 4 different locations.</span>
-            </Card>
-            <Card
-                src={`${import.meta.env.BASE_URL}/images/Kids-Kicking-Cancer-cover.jpg`}
-                alt="Kids in karate position in a dojo"
-                href="/initiatives/kids-kicking-cancer">
-                <span slot="title">Kids Kicking Cancer</span>
-                <span slot="text">Providing martial arts and meditation/pain control classes to U.P. children and their siblings.</span>
-            </Card>
-        </div>
-    </section>
     
 
+    <!-- TODO: Add swipe interactivity -->
+    <Cards />
 
 
+    <!-- TODO: Everything -->
     <section class="pt-96">
         <img 
             src={`${import.meta.env.BASE_URL}/images/Rylan.jpg`}
@@ -141,6 +108,8 @@ import Heading from "@components/Heading.svelte";
         </div>
         <Swoosh swooshNum={5} position="relative -translate-x-12 -mt-[28rem] z-0" />
     </section>
+
+    <!-- TODO: Everything -->
     <section class="pb-8 space-y-10">
         <Headline>Our <span class="text-orange">Statistics</span></Headline>
         <div class="
@@ -191,7 +160,7 @@ import Heading from "@components/Heading.svelte";
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- TODO: Make mobile responsive, create CTA component -->
     <section 
         aria-label="Drone image of Great Lakes shore. Photo by Lucas Ludwig on Unsplash"
         class="

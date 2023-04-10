@@ -4,17 +4,19 @@
     export let src: string = "https://via.placeholder.com/360x144.jpg"
     export let alt: string =  "placeholder"
     export let href: string = "#"
+    export let style: string = ""
 </script>
 
 <a {href} class="
-    flex flex-col items-center justify-between
+    w-full flex flex-col items-center justify-between
     overflow-hidden
     bg-white rounded-3xl
     drop-shadow-blue
     
     hover:-translate-y-2 hover:scale-102
     hover:drop-shadow-blue-hover
-    transition-all">
+    transition-all
+    {style}">
     <img {src} {alt} /> 
     <div class="pt-8 w-full
         flex flex-col items-center grow">
