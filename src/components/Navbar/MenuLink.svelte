@@ -8,10 +8,11 @@
 <li 
     on:click on:keypress
     class="
-        pt-1
+        -mb-2 lg:pt-1
         flex justify-center
         relative z-10
-        {dropdown ? "w-[16rem]" : ""}
+        text-3xl lg:text-xl xl:text-2xl xl:leading-7
+        {dropdown && "font-bold lg:w-[16rem] lg:font-medium xl:w-[20rem]"}
         {!dropdown && !activePage ? "md:hover:translate-y-0.5 md:transition-all" : ""}">
     <a 
         href={activePage ? "#top" : href}

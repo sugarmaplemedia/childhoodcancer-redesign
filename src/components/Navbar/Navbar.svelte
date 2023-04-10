@@ -7,7 +7,7 @@
     export let page: string
 
     let hamburger: HTMLElement
-    let MOBILE_MENU_IS_OPEN = true
+    let MOBILE_MENU_IS_OPEN = false
     enum MenuStates {
         OPEN,
         CLOSE,
@@ -26,28 +26,43 @@
                 break
         }
     }
+
+    const handleClick_OpenMenu = () => {
+        openMenu(MenuStates.TOGGLE)
+    }
+
+    const handleKeyDown_OpenMenu = (e: KeyboardEvent) => {
+        if (e.key == "Enter" || e.key == " ") {
+            e.preventDefault()
+            openMenu(MenuStates.TOGGLE)
+        }
+    }
     
 </script>
 
 <nav class="
-        w-full h-20
+        w-full h-20 lg:h-auto
         sticky top-0 z-50
-        flex justify-center items-center
+        flex justify-center items-center lg:justify-start
         bg-white
         font-menu uppercase font-medium text-xl">
+    <!-- Back Arrow -->
     <a 
         href="https://uplionsserve.org"
         class="
-            w-8 h-8 mr-32
-            fill-orange
-            -translate-y-0.5">
+            w-8 h-8 mr-[36vw] lg:w-6 lg:h-6 lg:pt-6 lg:ml-8 lg:mr-0 xl:w-8 xl:h-8 xl:pt-5 xl:ml-16
+            fill-navy
+            -translate-y-0.5 hover:translate-y-0 hover:rotate-12
+            transition-all origin-bottom-right duration-300">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
     </a>
+    <!-- CC Logo -->
     <a href={`${import.meta.env.BASE_URL}`} class="
-        w-52 mx-auto lg:w-52 lg:hover:pt-2
-        absolute top-4 z-10 lg:left-20 lg:top-4 
-        lg:hover:cursor-pointer
+        w-52 mx-auto
+        absolute top-4 z-10 lg:left-20 lg:top-4 xl:left-32
+        md:hover:translate-y-2
+        hover:cursor-pointer
         transition-all bounce">
         <svg viewBox="0 0 422.99 230.95">
             <defs>
@@ -141,31 +156,32 @@
             </g>
           </svg>
     </a>
-    <span 
+    <!-- Mobile Hamburger -->
+    <button 
         bind:this={hamburger}
-        on:click={() => openMenu(MenuStates.TOGGLE)}
-        on:keypress={(e) => e.key == "Enter" && openMenu(MenuStates.TOGGLE)}
-        tabindex="0" role="button" aria-label="Menu"
+        on:click={handleClick_OpenMenu}
+        on:keydown={handleKeyDown_OpenMenu}
+        tabindex="0"
         class="
-            w-8 h-8 ml-32 py-1
-            flex flex-col justify-between
+            w-8 h-8 ml-[36vw] py-1 lg:hidden
+            flex flex-col justify-between items-end
             cursor-pointer">
-            <hr class="w-full h-[0.33rem] border-none bg-orange rounded-full" >
-            <hr class="w-full h-[0.33rem] border-none bg-orange rounded-full" >
-            <hr class="w-full h-[0.33rem] border-none bg-orange rounded-full" >
-    </span>
+            <hr class="h-[0.33rem] border-none rounded-full transition-all {MOBILE_MENU_IS_OPEN ? 'w-1/2 bg-orange' : 'w-full bg-navy'}" />
+            <hr class="h-[0.33rem] border-none rounded-full transition-all {MOBILE_MENU_IS_OPEN ? 'w-3/4 bg-orange' : 'w-full bg-navy'}" />
+            <hr class="w-full h-[0.33rem] border-none rounded-full transition-all {MOBILE_MENU_IS_OPEN ? 'bg-orange' : 'bg-navy'}" />
+    </button>
     <ul class="
-            w-full h-[calc(100vh-5rem)] lg:pl-80 lg:pt-12 lg:pb-4
-            flex flex-col justify-center gap-12 lg:flex-row lg:grow lg:justify-left lg:gap-6
-            fixed top-20 lg:relative
-            bg-offwhite
-            text-navy text-3xl
+            w-full h-[calc(100vh-5rem)] py-36 lg:h-auto lg:py-0 lg:pl-[17rem] lg:pt-12 lg:pb-4 xl:pl-72
+            flex flex-col gap-12 lg:flex-row lg:grow lg:justify-left lg:gap-6
+            fixed top-20 overflow-y-scroll lg:relative lg:top-0 lg:overflow-y-visible
+            bg-offwhite lg:bg-white
+            text-navy
             transition-all
-            {MOBILE_MENU_IS_OPEN ? `translate-x-0` : `translate-x-full`}">
+            {MOBILE_MENU_IS_OPEN ? `translate-x-0` : `translate-x-full lg:translate-x-0`}">
         <NavFolder
             href={`${import.meta.env.BASE_URL}/programs#events`}
             {page} pageCheck="Events"
-            position="-left-40">
+            position="-left-40 xl:-left-[11.5rem]">
             <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh`} dropdown>Tour Da Yoop, Eh</MenuLink>
             <Spacer />
             <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/shf-annual-gala`} dropdown>SHF Annual Gala</MenuLink>
@@ -173,7 +189,7 @@
         <NavFolder
             href={`${import.meta.env.BASE_URL}/programs#initiatives`}
             {page} pageCheck="Initiatives"
-            position="-left-36">
+            position="-left-36 xl:-left-[10.5rem]">
             <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/camp-quality`} dropdown>Camp Quality</MenuLink>
             <Spacer />
             <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/maggies-wigs-4-kids`} dropdown>Maggies Wigs 4 Kids</MenuLink>
@@ -183,7 +199,7 @@
         <NavFolder
             href={`${import.meta.env.BASE_URL}/resources`}
             {page} pageCheck="Resources"
-            position="-left-36">
+            position="-left-36 xl:-left-[10.5rem]">
             <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/articles`} dropdown>Articles</MenuLink>
             <Spacer />
             <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/press-center`} dropdown>Press Center</MenuLink>
@@ -198,7 +214,7 @@
     <a 
         href={`${import.meta.env.BASE_URL}/donate`}
         class="group
-            hidden lg:block px-8 pt-12 pb-4
+            hidden px-8 pt-12 pb-4 lg:block
             bg-orange hover:bg-navy-light
             text-white
             transition-all">
