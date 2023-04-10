@@ -1,6 +1,5 @@
 <script lang="ts">
     import MenuLink from "./MenuLink.svelte"
-    import Folder from "./Folder.svelte";
     import Spacer from "./Spacer.svelte";
     import NavFolder from "./NavFolder.svelte";
 
@@ -37,7 +36,6 @@
             openMenu(MenuStates.TOGGLE)
         }
     }
-    
 </script>
 
 <nav class="

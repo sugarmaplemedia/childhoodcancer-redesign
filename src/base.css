@@ -5,7 +5,7 @@
 @layer base {
     h1 {
         @apply font-titles;
-        @apply text-5xl;
+        @apply text-3xl leading-10 lg:text-5xl;
         @apply text-navy-dark;
     }
     h2 {
@@ -33,5 +33,11 @@
         @apply text-sm;
         @apply text-navy-dark;
         @apply opacity-60;
+    }
+
+    p {
+        @apply font-sans;
+        @apply text-base;
+        @apply text-navy;
     }
 }
