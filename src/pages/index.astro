@@ -8,6 +8,8 @@ import Headline from "@components/fragments/Headline.svelte";
 import Icon from "@components/Icon.svelte";
 import Heading from "@components/Heading.svelte";
 import Cards from "@components/sections/Cards.svelte";
+import Heroes from "@components/home/Heroes.svelte";
+import CallToAction from "@components/home/CallToAction.svelte";
 ---
 
 <Layout
@@ -16,23 +18,23 @@ import Cards from "@components/sections/Cards.svelte";
     
     <!-- TODO: Convert into section component for home page -->
     <section class="
-            w-full xl:h-auto mb-16 xl:-mb-16
+            w-full mb-16
             relative
-
-            before:content-['']
+            
             before:w-full before:h-full
             before:absolute before:top-0 before:left-0 before:-z-20
-            before:bg-[url('/childhood-cancer/images/landing-hero.jpg')] before:bg-cover before:bg-left xl:before:bg-center
+            before:bg-[url('/childhood-cancer/images/landing-hero.jpg')] before:bg-cover before:bg-left sm:before:bg-center
             before:brightness-65 before:saturate-75">
         <div class="
-                px-8 pt-24 pb-[30vw] max-w-xl xl:ml-24 xl:pt-24 xl:pb-48
-                flex xl:block flex-col gap-4
+                max-w-lg lg:max-w-3xl px-8 pt-24 pb-[30vw] xl:pb-48 mx-auto xl:ml-24
+                flex flex-col items-center lg:items-start gap-4
+                text-center lg:text-left
                 relative">
-            <Heading size={1} color={"white"}>
+            <h1 class="text-white">
                 Helping Upper Peninsula families <span class="text-orange">fight</span> childhood cancer.
-            </Heading>
-            <p class="xl:pt-2 xl:pb-6 text-white">Since our project began, we have seen a rise in the number of families living in the Upper Peninsula of Michigan seeking help with a child battling cancer.</p>
-            <p class="mb-4 text-lg font-bold text-white">As of December 2022, that number has increased by more <span class="text-orange">than twenty-fold!</span></p>
+            </h1>
+            <p class=" text-white">Since our project began, we have seen a rise in the number of families living in the Upper Peninsula of Michigan seeking help with a child battling cancer.</p>
+            <p class="mb-2 text-lg font-bold text-white">As of December 2022, that number has increased by more <span class="text-orange">than twenty-fold!</span></p>
             <Button>Join the fight</Button>
         </div>
         <div class="
@@ -64,50 +66,11 @@ import Cards from "@components/sections/Cards.svelte";
     <Cards />
 
 
-    <!-- TODO: Everything -->
-    <section class="pt-96">
-        <img 
-            src={`${import.meta.env.BASE_URL}/images/Rylan.jpg`}
-            alt="Boy on a swingset"
-            class="
-                max-w-xl
-                absolute right-0 -translate-y-72 -z-30
-                rounded-l-3xl"/>
-        <div class="
-            max-w-4xl py-16 pl-64 pr-16
-            relative z-10
-            bg-white rounded-r-3xl
-            drop-shadow-blue">
-            <div class="
-                pb-8 space-x-12
-                flex items-center justify-center
-                ">
-                <span class="
-                    w-12 h-12
-                    flex items-center justify-center
-                    bg-orange-light rounded-full">
-                    <Icon id="arrow" color="fill-navy" styling="translate-y-0.5 scale-50 rotate-180" />
-                </span>
-                <Headline>Our <span class="text-orange">Heroes</span></Headline>
-                <span class="
-                    w-12 h-12
-                    flex items-center justify-center
-                    bg-orange rounded-full">
-                    <Icon id="arrow" color="fill-white" styling="-translate-y-0.5 scale-50" />
-                </span>
-            </div>
-            <div class="space-y-4">
-                <Heading size={4}>Rylan</Heading>
-                <p class="font-bold">
-                    Rylan is an Upper Peninsula 5-year-old who was being treated for high-risk neuroblastoma. He gained his Angel Wings on July 18, 2022.
-                </p>
-                <p>
-                    His father is very grateful for the assistance as Rylan received treatment at the University of Michigan hospitals in Ann Arbor, including surgery, chemotherapy, bone marrow transplants, and more. This treatment required lengthy hospitalizations, keeping Rylan and his mom away from his father and siblings for months.
-                </p>
-            </div>
-        </div>
-        <Swoosh swooshNum={5} position="relative -translate-x-12 -mt-[28rem] z-0" />
-    </section>
+
+    <!-- TODO: Make desktop responsive -->
+    <Heroes client:load />
+
+
 
     <!-- TODO: Everything -->
     <section class="pb-8 space-y-10">
@@ -160,44 +123,7 @@ import Cards from "@components/sections/Cards.svelte";
         </div>
     </section>
 
-    <!-- TODO: Make mobile responsive, create CTA component -->
-    <section 
-        aria-label="Drone image of Great Lakes shore. Photo by Lucas Ludwig on Unsplash"
-        class="
-            w-full
-            relative
-
-            before:content-['']
-            before:w-full before:h-full
-            before:absolute before:top-0 before:left-0 before:-z-20
-            before:bg-[url('/childhood-cancer/images/GreatLakes-0.1q.jpg')] before:bg-cover before:bg-center
-            before:brightness-65 before:saturate-75
-            ">
-        <div class="
-                min-w-[1600px]
-                absolute z-10 overflow-x-hidden
-                translate-x-12 -translate-y-16 rotate-180 scale-110
-                pointer-events-none">
-            <img src={`${import.meta.env.BASE_URL}/graphics/swooshes/Asset 2.svg`} alt="" draggable="false" />
-        </div>
-        <div class="
-            max-w-xl ml-24 pb-24 pt-36
-            relative">
-            <Heading size={2} color="white">
-                <span class="text-orange">Michigan is 5th in the nation</span><br />
-                <span class="
-                    block w-96 py-2
-                    text-2xl text-white">
-                    for annual number of pediatric cancer diagnoses.
-                </span>
-            </Heading>
-            <p class="
-                pt-2 pb-6
-                font-sans font-medium text-white">470 children are diagnosed in Michigan each year, and the Upper Peninsula has the largest number of children per capita diagnosed with cancer in Michigan. U.P. families face daunting challenges because they must travel out of our area for care. Many times, one parent is forced to take an extended leave of absence or leave a job to be with their child. Medical treatment can go on for many years, leaving kids with physical, emotional, and sensory deficits.
-            </p>
-            <Button>Help Us Help Them.</Button>
-        </div>
-    </section>
+    <CallToAction />
 </Layout>
 
 <script>

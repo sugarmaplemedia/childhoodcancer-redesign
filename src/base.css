@@ -5,7 +5,7 @@
 @layer base {
     h1 {
         @apply font-titles;
-        @apply text-3xl leading-10 lg:text-5xl;
+        @apply text-3xl md:text-4xl lg:text-5xl leading-10  lg:leading-[3.5rem];
         @apply text-navy-dark;
     }
     h2 {
