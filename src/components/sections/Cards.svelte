@@ -29,13 +29,13 @@ export let button: { text: string, href: string }|null = null
     <div class="
             max-w-4xl w-full mb-8
             flex lg:grid flex-col grid-cols-3 items-center lg:items-stretch gap-6">
-        {#each content as contentCard}
+        {#each content as card}
         <Card
-            src={`${import.meta.env.BASE_URL}/${contentCard.src}`}
-            alt={contentCard.alt}
-            href={`${import.meta.env.BASE_URL}/${contentCard.href}`}>
-            <span slot="title">{contentCard.title}</span>
-            <span slot="text">{contentCard.text}</span>
+            src={`${import.meta.env.BASE_URL}/${card.src}`}
+            alt={card.alt}
+            href={`${import.meta.env.BASE_URL}/${card.href}`}>
+            <span slot="title">{card.title}</span>
+            <span slot="text">{card.text}</span>
         </Card>
         {/each}
     </div>
