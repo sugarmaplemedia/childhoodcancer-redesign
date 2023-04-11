@@ -1,21 +1,23 @@
 <script lang="ts">
     import Icon from "@components/Icon.svelte"
+    import Headline from "@components/fragments/Headline.svelte";
+    import { fade } from "svelte/transition";
 
     let content = [
         {
             icon: "car",
             title: "Travel Costs",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.0"
+            description: "To receive care, our families must travel long distances. Our grants assist with travel costs, such as gas food, and accomodations."
         },
         {
             icon: "love",
             title: "Emotional Support",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.1"
+            description: "Lions Clubs from around the U.P. provide toys, cards, hats, quilts, pillowcases, love, and more to let our families know they aren't alone."
         },
         {
             icon: "bill",
             title: "Household Bills",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.2"
+            description: "Fighting cancer is expensive. Our grants help with bills, such as rent, utilities, groceries, and the associated extensive medical charges."
         }
     ]
     
@@ -47,6 +49,7 @@
         w-screen
         flex md:hidden flex-col items-center gap-8
         z-10">
+    <Headline>Our <span class="text-orange">Purpose</span></Headline>
     <div 
         class="w-full relative pb-24 overflow-x-hidden">
         <!-- left container -->
@@ -123,29 +126,39 @@
             </span>
         </button>
     </div>
-    <p class="max-w-md px-8">{content[current].description}</p>
+    {#key current}
+    <p
+        in:fade={{ duration: 300 }}
+        class="max-w-md px-8">
+        {content[current].description}
+    </p>
+    {/key}
 </section>
 
 <section class="
-        w-screen max-w-4xl pt-8
+        w-screen max-w-4xl pt-8 mb-16
         hidden md:flex flex-col items-center gap-8
         z-10">
+    <Headline>Our <span class="text-orange">Purpose</span></Headline>
     <div class="
             w-full px-8 overflow-x-hidden
             relative
-            grid grid-cols-{content.length} gap-2
-
-            [&>*:not(:first-child)]:ml-2
-            
-            [&>*:not(:last-child)]:after:border-none [&>*:not(:last-child)]:border-r-4 [&>*:not(:last-child)]:border-dotted [&>*:not(:last-child)]:border-navy-super-light">
-        {#each content as current}
+            flex items-center justify-center gap-4">
+        {#each content as current, i}
         <div class="
+                px-4
                 flex flex-col items-center gap-4
                 ">
             <Icon id={current.icon} />
             <h4>{current.title}</h4>
-            <p>{current.description}</p>
+            <p class="text-center">{current.description}</p>
         </div>
+        {#if i != content.length - 1}
+        <hr class="
+                h-36 w-0
+                border-r-[6px] border-dotted border-navy-super-light
+                -translate-x-2" />
+        {/if}
         {/each}
     </div>
     
