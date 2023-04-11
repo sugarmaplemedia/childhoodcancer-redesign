@@ -22,12 +22,14 @@ import CallToAction from "@components/home/CallToAction.svelte";
 
 
     <!-- TODO: Clean up formatting, code -->
-    <MediaAndText src={import.meta.env.BASE_URL + "/images/canDrive5-compressed.jpg"}>
-        <span slot="title">
+    <MediaAndText 
+        src={`${import.meta.env.BASE_URL}/images/canDrive5-compressed.jpg`}
+        alt="Female Lions Club member standing next to a banner that reads 'Cans for Kids with Cancer'">
+        <span slot="headline">
             Our <span class="text-orange">Mission</span>
         </span>
         <p>Is to serve children and families from the Upper Peninsula who are battling childhood cancer. Our program assembles initiatives to help these families meet financial needs for travel, medical, and household bills.</p>
-        <Button href="/about#mission">Learn more</Button>
+        <Button href={`${import.meta.env.BASE_URL}/about#mission`}>Learn more</Button>
     </MediaAndText>
     
 

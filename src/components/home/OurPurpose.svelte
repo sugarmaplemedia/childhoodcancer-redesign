@@ -46,7 +46,7 @@
 </script>
 
 <section class="
-        w-screen
+        w-screen mb-16
         flex md:hidden flex-col items-center gap-8
         z-10">
     <Headline>Our <span class="text-orange">Purpose</span></Headline>
