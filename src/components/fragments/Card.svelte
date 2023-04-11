@@ -8,7 +8,7 @@
 </script>
 
 <a {href} class="
-    w-full flex flex-col items-center justify-between
+    w-full max-w-xs flex flex-col items-center justify-between
     overflow-hidden
     bg-white rounded-3xl
     drop-shadow-blue
