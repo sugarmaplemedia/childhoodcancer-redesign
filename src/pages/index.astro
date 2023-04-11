@@ -1,14 +1,13 @@
 ---
 import Layout from "@layouts/BaseLayout.astro";
-import Swoosh from "@components/Swoosh.svelte";
+import Hero from "@components/home/Hero.svelte";
 import StatsDisplay from "@components/home/StatsDisplay.svelte";
 import MediaAndText from "@components/MediaAndText.svelte";
 import Button from "@components/Button.svelte";
 import Headline from "@components/fragments/Headline.svelte";
 import Icon from "@components/Icon.svelte";
-import Heading from "@components/Heading.svelte";
 import Cards from "@components/sections/Cards.svelte";
-import Heroes from "@components/home/Heroes.svelte";
+import OurHeroes from "@components/home/OurHeroes.svelte";
 import CallToAction from "@components/home/CallToAction.svelte";
 ---
 
@@ -16,37 +15,7 @@ import CallToAction from "@components/home/CallToAction.svelte";
     title="U.P. Lions Serve: Childhood Cancer"
     description="Working every day to raise funds for Upper Peninsula families battling childhood cancer, the U.P. Lions Serve: Childhood Cancer program assembles initiatives to assist these families in paying for travel, medical, and household bills. We provide resources and connect families with life-changing programs, including Camp Quality, Maggie’s Wigs 4 Kids, and Kids Kicking Cancer.">
     
-    <!-- TODO: Convert into section component for home page -->
-    <section class="
-            w-full mb-16
-            relative
-            
-            before:w-full before:h-full
-            before:absolute before:top-0 before:left-0 before:-z-20
-            before:bg-[url('/childhood-cancer/images/landing-hero.jpg')] before:bg-cover before:bg-left sm:before:bg-center
-            before:brightness-65 before:saturate-75">
-        <div class="
-                max-w-lg lg:max-w-3xl px-8 pt-24 pb-[30vw] xl:pb-48 mx-auto xl:ml-24
-                flex flex-col items-center lg:items-start gap-4
-                text-center lg:text-left
-                relative">
-            <h1 class="text-white">
-                Helping Upper Peninsula families <span class="text-orange">fight</span> childhood cancer.
-            </h1>
-            <p class=" text-white">Since our project began, we have seen a rise in the number of families living in the Upper Peninsula of Michigan seeking help with a child battling cancer.</p>
-            <p class="mb-2 text-lg font-bold text-white">As of December 2022, that number has increased by more <span class="text-orange">than twenty-fold!</span></p>
-            <Button>Join the fight</Button>
-        </div>
-        <div class="
-                w-full xl:min-w-[1600px] -mt-[15rem]
-                absolute bottom-24 xl:bottom-auto z-10 overflow-x-hidden 
-                translate-y-32 xl:translate-y-0 scale-[3] sm:scale-[2] xl:scale-110 -rotate-9 -left-8
-                pointer-events-none">
-            <img src={`${import.meta.env.BASE_URL}/graphics/swooshes/Asset 2.svg`} alt="" draggable="false" class="" />
-        </div>
-    </section>
-
-
+    <Hero />
 
     <!-- TODO: Add paragraph content, clean up appearance -->
     <StatsDisplay client:load />
@@ -68,7 +37,7 @@ import CallToAction from "@components/home/CallToAction.svelte";
 
 
     <!-- TODO: Make desktop responsive -->
-    <Heroes client:load />
+    <OurHeroes client:load />
 
 
 
