@@ -45,7 +45,7 @@
 
 <section class="
         w-screen
-        flex flex-col items-center gap-8
+        flex md:hidden flex-col items-center gap-8
         z-10">
     <div 
         class="w-full relative pb-24 overflow-x-hidden">
@@ -81,16 +81,23 @@
         
     </div>
     <div class="
-            w-full max-w-md pb-8
+            w-full pb-8
             flex justify-between items-center gap-6
             z-10">
         <button
             on:click={handleClick_previous}
-            class="bg-orange h-18 rounded-r-full scale-[1.75] -translate-x-4">
+            class="
+                h-18
+                bg-orange rounded-r-full
+                scale-[1.75]
+                transition-all ease-out
+                {slideOrigin == "left" && justClicked ? '-translate-x-8' : '-translate-x-4'}">
             <span class="
                     block py-4 px-5
                     bg-orange-super-light fill-navy-light rounded-full
-                     translate-x-5 rotate-180 scale-[.25]">
+                    rotate-180
+                    transition-all ease-out
+                    {slideOrigin == "left" && justClicked ? 'translate-x-6 scale-[.2]' : 'translate-x-5 scale-[.25]'}">
                 <Icon id="arrow" />
             </span>
         </button>
@@ -101,14 +108,45 @@
                 translate-y-[0.125rem]" />
         <button
             on:click={handleClick_next}
-            class="bg-orange h-18 rounded-l-full scale-[1.75] translate-x-4">
+            class="
+                h-18
+                bg-orange rounded-l-full
+                scale-[1.75]
+                transition-all ease-out
+                {slideOrigin == "right" && justClicked ? 'translate-x-8' : 'translate-x-4'}">
             <span class="
                     block py-4 px-5
                     bg-orange-super-light fill-navy-light rounded-full
-                    -translate-x-5 scale-[.25]">
+                    transition-all ease-out
+                    {slideOrigin == "right" && justClicked ? '-translate-x-6 scale-[.2]' : '-translate-x-5 scale-[.25]'}">
                 <Icon id="arrow" />
             </span>
         </button>
     </div>
     <p class="max-w-md px-8">{content[current].description}</p>
+</section>
+
+<section class="
+        w-screen max-w-4xl pt-8
+        hidden md:flex flex-col items-center gap-8
+        z-10">
+    <div class="
+            w-full px-8 overflow-x-hidden
+            relative
+            grid grid-cols-{content.length} gap-2
+
+            [&>*:not(:first-child)]:ml-2
+            
+            [&>*:not(:last-child)]:after:border-none [&>*:not(:last-child)]:border-r-4 [&>*:not(:last-child)]:border-dotted [&>*:not(:last-child)]:border-navy-super-light">
+        {#each content as current}
+        <div class="
+                flex flex-col items-center gap-4
+                ">
+            <Icon id={current.icon} />
+            <h4>{current.title}</h4>
+            <p>{current.description}</p>
+        </div>
+        {/each}
+    </div>
+    
 </section>
