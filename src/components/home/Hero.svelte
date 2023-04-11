@@ -9,7 +9,8 @@
         
         before:w-full before:h-full
         before:absolute before:top-0 before:left-0 before:-z-20
-        before:bg-[url('{import.meta.env.BASE_URL}/images/landing-hero.jpg')] before:bg-cover before:bg-left sm:before:bg-center
+        before:bg-navy
+        before:bg-[url('/childhood-cancer/images/landing-hero.jpg')] before:bg-cover before:bg-left sm:before:bg-center
         before:brightness-65 before:saturate-75">
     <div class="
             max-w-lg lg:max-w-3xl px-8 pt-24 pb-[30vw] xl:pb-48 mx-auto xl:ml-24
