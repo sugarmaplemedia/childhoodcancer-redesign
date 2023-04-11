@@ -1,27 +1,25 @@
 <script lang="ts">
-    import Heading from "@components/Heading.svelte";
+export let direction: string = "center"
 
-    export let direction: string = "center"
-    switch (direction) {
-        case "left":
-            direction = "items-start"
-            break
-        case "center":
-            direction = "items-center"
-            break
-        case "right":
-            direction = "items-end"
-            break
-    }
+switch (direction) {
+    case "left":
+        direction = "items-start"
+        break
+    case "center":
+        direction = "items-center"
+        break
+    case "right":
+        direction = "items-end"
+        break
+}
+
 </script>
 
 <div class="
     flex flex-col {direction}">
-    <Heading size={2}>
-        <slot>
-            Section <span class="text-orange">Headline</span>
-        </slot>
-    </Heading>
+    <h2>
+        <slot>Section <span class="text-orange">Headline</span></slot>
+    </h2>
     <div class="
         py-2 space-y-2
         flex flex-col {direction}">

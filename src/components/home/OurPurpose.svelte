@@ -1,21 +1,23 @@
 <script lang="ts">
     import Icon from "@components/Icon.svelte"
+    import Headline from "@components/fragments/Headline.svelte";
+    import { fade } from "svelte/transition";
 
     let content = [
         {
             icon: "car",
             title: "Travel Costs",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.0"
+            description: "To receive care, our families must travel long distances. Our grants assist with travel costs, such as gas food, and accomodations."
         },
         {
             icon: "love",
             title: "Emotional Support",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.1"
+            description: "Lions Clubs from around the U.P. provide toys, cards, hats, quilts, pillowcases, love, and more to let our families know they aren't alone."
         },
         {
             icon: "bill",
             title: "Household Bills",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.2"
+            description: "Fighting cancer is expensive. Our grants help with bills, such as rent, utilities, groceries, and the associated extensive medical charges."
         }
     ]
     
@@ -45,8 +47,9 @@
 
 <section class="
         w-screen
-        flex flex-col items-center gap-8
+        flex md:hidden flex-col items-center gap-8
         z-10">
+    <Headline>Our <span class="text-orange">Purpose</span></Headline>
     <div 
         class="w-full relative pb-24 overflow-x-hidden">
         <!-- left container -->
@@ -81,16 +84,23 @@
         
     </div>
     <div class="
-            w-full max-w-md pb-8
+            w-full pb-8
             flex justify-between items-center gap-6
             z-10">
         <button
             on:click={handleClick_previous}
-            class="bg-orange h-18 rounded-r-full scale-[1.75] -translate-x-4">
+            class="
+                h-18
+                bg-orange rounded-r-full
+                scale-[1.75]
+                transition-all ease-out
+                {slideOrigin == "left" && justClicked ? '-translate-x-8' : '-translate-x-4'}">
             <span class="
                     block py-4 px-5
                     bg-orange-super-light fill-navy-light rounded-full
-                     translate-x-5 rotate-180 scale-[.25]">
+                    rotate-180
+                    transition-all ease-out
+                    {slideOrigin == "left" && justClicked ? 'translate-x-6 scale-[.2]' : 'translate-x-5 scale-[.25]'}">
                 <Icon id="arrow" />
             </span>
         </button>
@@ -101,14 +111,55 @@
                 translate-y-[0.125rem]" />
         <button
             on:click={handleClick_next}
-            class="bg-orange h-18 rounded-l-full scale-[1.75] translate-x-4">
+            class="
+                h-18
+                bg-orange rounded-l-full
+                scale-[1.75]
+                transition-all ease-out
+                {slideOrigin == "right" && justClicked ? 'translate-x-8' : 'translate-x-4'}">
             <span class="
                     block py-4 px-5
                     bg-orange-super-light fill-navy-light rounded-full
-                    -translate-x-5 scale-[.25]">
+                    transition-all ease-out
+                    {slideOrigin == "right" && justClicked ? '-translate-x-6 scale-[.2]' : '-translate-x-5 scale-[.25]'}">
                 <Icon id="arrow" />
             </span>
         </button>
     </div>
-    <p class="max-w-md px-8">{content[current].description}</p>
+    {#key current}
+    <p
+        in:fade={{ duration: 300 }}
+        class="max-w-md px-8">
+        {content[current].description}
+    </p>
+    {/key}
+</section>
+
+<section class="
+        w-screen max-w-4xl pt-8 mb-16
+        hidden md:flex flex-col items-center gap-8
+        z-10">
+    <Headline>Our <span class="text-orange">Purpose</span></Headline>
+    <div class="
+            w-full px-8 overflow-x-hidden
+            relative
+            flex items-center justify-center gap-4">
+        {#each content as current, i}
+        <div class="
+                px-4
+                flex flex-col items-center gap-4
+                ">
+            <Icon id={current.icon} />
+            <h4>{current.title}</h4>
+            <p class="text-center">{current.description}</p>
+        </div>
+        {#if i != content.length - 1}
+        <hr class="
+                h-36 w-0
+                border-r-[6px] border-dotted border-navy-super-light
+                -translate-x-2" />
+        {/if}
+        {/each}
+    </div>
+    
 </section>
