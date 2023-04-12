@@ -1,6 +1,6 @@
 <script lang="ts">
-    import MenuLink from "./MenuLink.svelte"
-    import Spacer from "./Spacer.svelte";
+    import NavLink from "./NavLink.svelte"
+    import NavSpacer from "./NavSpacer.svelte";
     import NavFolder from "./NavFolder.svelte";
 
     export let page: string
@@ -180,34 +180,34 @@
             href={`${import.meta.env.BASE_URL}/programs#events`}
             {page} pageCheck="Events"
             position="-left-40 xl:-left-[11.5rem]">
-            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh`} dropdown>Tour Da Yoop, Eh</MenuLink>
-            <Spacer />
-            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/shf-annual-gala`} dropdown>SHF Annual Gala</MenuLink>
+            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh`} dropdown>Tour Da Yoop, Eh</NavLink>
+            <NavSpacer />
+            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/shf-annual-gala`} dropdown>SHF Annual Gala</NavLink>
         </NavFolder>
         <NavFolder
             href={`${import.meta.env.BASE_URL}/programs#initiatives`}
             {page} pageCheck="Initiatives"
             position="-left-36 xl:-left-[10.5rem]">
-            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/camp-quality`} dropdown>Camp Quality</MenuLink>
-            <Spacer />
-            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/maggies-wigs-4-kids`} dropdown>Maggies Wigs 4 Kids</MenuLink>
-            <Spacer />
-            <MenuLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/kids-kicking-cancer`} dropdown>Kids Kicking Cancer</MenuLink>
+            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/camp-quality`} dropdown>Camp Quality</NavLink>
+            <NavSpacer />
+            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/maggies-wigs-4-kids`} dropdown>Maggies Wigs 4 Kids</NavLink>
+            <NavSpacer />
+            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/kids-kicking-cancer`} dropdown>Kids Kicking Cancer</NavLink>
         </NavFolder>
         <NavFolder
             href={`${import.meta.env.BASE_URL}/resources`}
             {page} pageCheck="Resources"
             position="-left-36 xl:-left-[10.5rem]">
-            <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/articles`} dropdown>Articles</MenuLink>
-            <Spacer />
-            <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/press-center`} dropdown>Press Center</MenuLink>
-            <Spacer />
-            <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/photo-gallery`} dropdown>Photo Gallery</MenuLink>
-            <Spacer />
-            <MenuLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/learn`} dropdown>Learn</MenuLink>
+            <NavLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/articles`} dropdown>Articles</NavLink>
+            <NavSpacer />
+            <NavLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/press-center`} dropdown>Press Center</NavLink>
+            <NavSpacer />
+            <NavLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/photo-gallery`} dropdown>Photo Gallery</NavLink>
+            <NavSpacer />
+            <NavLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/learn`} dropdown>Learn</NavLink>
         </NavFolder>
-        <MenuLink activePage={page == "About"} href={`${import.meta.env.BASE_URL}/about`}>About</MenuLink>
-        <MenuLink activePage={page == "Get Help"} href={`${import.meta.env.BASE_URL}/get-help`}>Get Help</MenuLink>
+        <NavLink activePage={page == "About"} href={`${import.meta.env.BASE_URL}/about`}>About</NavLink>
+        <NavLink activePage={page == "Get Help"} href={`${import.meta.env.BASE_URL}/get-help`}>Get Help</NavLink>
     </ul>
     <a 
         href={`${import.meta.env.BASE_URL}/donate`}

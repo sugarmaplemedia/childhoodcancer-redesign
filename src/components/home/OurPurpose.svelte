@@ -1,6 +1,6 @@
 <script lang="ts">
 import Icon from "@components/Icon.svelte"
-import Headline from "@components/fragments/Headline.svelte";
+import Headline from "@components/_fragments/Headline.svelte";
 import { fade } from "svelte/transition";
 
 let content = [

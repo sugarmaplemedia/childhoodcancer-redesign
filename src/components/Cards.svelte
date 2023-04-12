@@ -1,7 +1,7 @@
 <script lang="ts">
 import Button from '@components/Button.svelte';
-import Card from '@components/fragments/Card.svelte'
-import Headline from '@components/fragments/Headline.svelte'
+import Card from '@components/_fragments/Card.svelte'
+import Headline from '@components/_fragments/Headline.svelte'
 
 type Card = {
     src: string,

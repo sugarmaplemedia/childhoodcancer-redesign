@@ -10,7 +10,7 @@
     }
     h2 {
         @apply font-titles;
-        @apply text-4xl;
+        @apply text-2xl lg:text-4xl;
         @apply text-navy;
     }
     h3 {
