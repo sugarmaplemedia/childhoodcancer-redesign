@@ -71,59 +71,6 @@ import CallToAction from "@components/home/CallToAction.svelte";
     <!-- TODO: Make desktop responsive, Add (Read More) on longer texts -->
     <OurHeroes client:load />
 
-
-
-    <!-- TODO: Everything -->
-    <section class="pb-8 space-y-10">
-        <Headline>Our <span class="text-orange">Statistics</span></Headline>
-        <div class="
-            flex items-center">
-            <div class="
-                w-1/6 space-y-8
-                flex flex-col items-center justify-center">
-                <Icon id="circle-dot" />
-                <Icon id="circle-dot" />
-                <Icon id="circle-dot" />
-                <Icon id="circle-dot" />
-            </div>
-            <!-- Snap container -->
-            <div id="scrollbox" class="
-                w-5/6 h-[calc(100vh-100px)]
-                snap-y snap-mandatory overflow-scroll">
-                <div class="snap-end h-[calc(100vh-100px)] flex flex-col overflow-x-hidden">
-                    <img src={`${import.meta.env.BASE_URL}/graphics/stats/stats-0.jpg`} alt="">
-                    <p class="w-2/3 py-4">
-                        Since our project began, we have seen a rise in the number of families living in the Upper Peninsula of Michigan seeking help with a child battling cancer. <strong>As of December 2021, that number has increased by more than twenty-fold!</strong>
-                    </p>
-                </div>
-                <div class="snap-end h-[calc(100vh-100px)] flex flex-col overflow-x-hidden">
-                    <img src={`${import.meta.env.BASE_URL}/graphics/stats/stats-1.jpg`} alt="">
-                    <p class="w-2/3 py-4">
-                        According to recent figures, 11,000 children in the U.S. were diagnosed with a form of cancer in 2020. Michigan diagnoses approximately 470 children per year with some form of cancer. At any given time there are approximately 2000 children in Michigan battling this dreadful disease. <strong>The Upper Peninsula of Michigan has the largest number of cases diagnosed per capita.</strong>
-                    </p>
-                </div>
-                <div class="snap-end h-[calc(100vh-100px)] flex flex-col overflow-x-hidden">
-                    <img src={`${import.meta.env.BASE_URL}/graphics/stats/stats-2.jpg`} alt="">
-                    <p class="w-2/3 py-4">
-                        Within the past few decades, cancer research has produced promising treatments for pediatric cancer. 60% of children who have had cancer, have lifelong emotional, cognitive, physical, and developmental deficits. Key statistics for Childhood Cancers, The American Cancer Society's most recent estimates and statistics for cancer in children in the United States can be found here. <strong>Currently in the U.S., the recovery rate for childhood cancer is 84%.</strong>
-                    </p>
-                </div>
-                <div class="snap-end h-[calc(100vh-100px)] flex flex-col overflow-x-hidden">
-                    <img src={`${import.meta.env.BASE_URL}/graphics/stats/stats-3.jpg`} alt="">
-                    <p class="w-2/3 py-4">
-                        The Childhood Cancer program has worked hard and received support from several organizations. Fundraisers and donations made by Lions, other organizations and individuals earned over $30,000. Tour Da Yoop, Eh earned over $50,000 in 2022. Graymont and Superior Health Foundation provided grants worth over $25,000. A Legacy Bequeathment has also provided funding. <strong>In total, The U.P. Lions Serve Childhood Cancer Program has raised over $100,000 through fundraisers, individual donations, and grants!</strong>
-                    </p>
-                </div>
-                <div class="snap-end h-[calc(100vh-400px)] flex flex-col overflow-x-hidden">
-                    <img src={`${import.meta.env.BASE_URL}/graphics/stats/stats-4.jpg`} alt="">
-                    <p class="w-2/3 py-4">
-                        Families found by the Childhood Cancer program, distributed by county.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <CallToAction />
 </Layout>
 
