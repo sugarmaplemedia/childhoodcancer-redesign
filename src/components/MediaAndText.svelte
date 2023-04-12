@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Headline from "@components/fragments/Headline.svelte"
+    import Headline from "@components/_fragments/Headline.svelte"
     import Button from "@components/Button.svelte"
 
     export let src: string = "https://via.placeholder.com/640x480.jpg"

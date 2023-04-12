@@ -1,5 +1,5 @@
 ---
-import Navbar from "@components/Navbar/Navbar.svelte";
+import NavMenu from "@components/_collections/NavMenu/NavMenu.svelte";
 import "../base.css";
 
 interface Props {
@@ -36,7 +36,7 @@ const {
         <!-- <script src="https://donorbox.org/widget.js" paypalExpress="false"></script> -->
     </head>
     <body class="text-navy">
-        {nav && <Navbar page={title} client:load /> }
+        {nav && <NavMenu page={title} client:load /> }
         <main class="
                 flex flex-col items-center gap-12
                 ">
