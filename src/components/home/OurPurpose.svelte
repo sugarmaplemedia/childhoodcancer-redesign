@@ -1,48 +1,49 @@
 <script lang="ts">
-    import Icon from "@components/Icon.svelte"
-    import Headline from "@components/fragments/Headline.svelte";
-    import { fade } from "svelte/transition";
+import Icon from "@components/Icon.svelte"
+import Headline from "@components/fragments/Headline.svelte";
+import { fade } from "svelte/transition";
 
-    let content = [
-        {
-            icon: "car",
-            title: "Travel Costs",
-            description: "To receive care, our families must travel long distances. Our grants assist with travel costs, such as gas food, and accomodations."
-        },
-        {
-            icon: "love",
-            title: "Emotional Support",
-            description: "Lions Clubs from around the U.P. provide toys, cards, hats, quilts, pillowcases, love, and more to let our families know they aren't alone."
-        },
-        {
-            icon: "bill",
-            title: "Household Bills",
-            description: "Fighting cancer is expensive. Our grants help with bills, such as rent, utilities, groceries, and the associated extensive medical charges."
-        }
-    ]
-    
-    let position = 0
-    $: current = Math.abs(position % 3)
-    $: last = Math.abs(slideOrigin == "left" ? (position + 1) % content.length : (position - 1) % content.length)
-    
-    let slideOrigin: "left"|"right" = "right"
-    let justClicked = false
-    const handleClick_previous = () => {
-        position--
-        slideOrigin = "left"
-        justClicked = true
-        setTimeout(() => {
-            justClicked = false
-        }, 300)
+let content = [
+    {
+        icon: "car",
+        title: "Travel Costs",
+        description: "To receive care, our families must travel long distances. Our grants assist with travel costs, such as gas food, and accomodations."
+    },
+    {
+        icon: "love",
+        title: "Emotional Support",
+        description: "Lions Clubs from around the U.P. provide toys, cards, hats, quilts, pillowcases, love, and more to let our families know they aren't alone."
+    },
+    {
+        icon: "bill",
+        title: "Household Bills",
+        description: "Fighting cancer is expensive. Our grants help with bills, such as rent, utilities, groceries, and the associated extensive medical charges."
     }
-    const handleClick_next = () => {
-        position++
-        slideOrigin = "right"
-        justClicked = true
-        setTimeout(() => {
-            justClicked = false
-        }, 300)
-    }
+]
+
+let position = 0
+$: current = Math.abs(position % 3)
+$: last = Math.abs(slideOrigin == "left" ? (position + 1) % content.length : (position - 1) % content.length)
+
+let slideOrigin: "left"|"right" = "right"
+let justClicked = false
+const handleClick_previous = () => {
+    position--
+    slideOrigin = "left"
+    justClicked = true
+    setTimeout(() => {
+        justClicked = false
+    }, 300)
+}
+const handleClick_next = () => {
+    position++
+    slideOrigin = "right"
+    justClicked = true
+    setTimeout(() => {
+        justClicked = false
+    }, 300)
+}
+
 </script>
 
 <section class="
