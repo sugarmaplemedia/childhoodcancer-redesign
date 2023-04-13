@@ -40,4 +40,8 @@
         @apply text-base;
         @apply text-navy;
     }
+
+    a {
+        @apply underline
+    }
 }

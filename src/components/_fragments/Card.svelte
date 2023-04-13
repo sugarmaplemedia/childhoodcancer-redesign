@@ -12,6 +12,7 @@
     overflow-hidden
     bg-white rounded-3xl
     drop-shadow-blue
+    no-underline
     
     hover:-translate-y-2 hover:scale-102
     hover:drop-shadow-blue-hover
