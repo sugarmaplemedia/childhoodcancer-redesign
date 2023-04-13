@@ -214,7 +214,7 @@
         class="group
             hidden px-8 pt-12 pb-4 lg:block
             bg-orange hover:bg-navy-light
-            text-white
+            text-white no-underline
             transition-all">
         <ul>
             <li class=" group-hover:translate-y-0.5 transition-all">Donate</li>
