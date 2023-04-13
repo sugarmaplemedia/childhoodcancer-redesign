@@ -2,6 +2,7 @@
     export let href: string = "#"
     export let newtab: boolean = false
     export let width: "fit"|"fill" = "fit"
+    export let styling: string = ""
 </script>
 
 <a
@@ -14,7 +15,8 @@
         text-navy-dark font-sans font-semibold uppercase no-underline
         overflow-hidden
         transition-all
-        {width == 'fit' ? 'w-fit' : 'w-full'}">
+        {width == 'fit' ? 'w-fit' : 'w-full'}
+        {styling}">
     <span class="
         relative z-10
         flex items-center justify-center gap-2
