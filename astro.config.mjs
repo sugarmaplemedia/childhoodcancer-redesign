@@ -14,6 +14,6 @@ export default defineConfig({
             config: { applyBaseStyles: false }
         })
     ],
-    base: "/childhood-cancer",
+    // base: "/childhood-cancer",
     trailingSlash: "never",
 });
