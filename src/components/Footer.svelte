@@ -75,14 +75,14 @@ import Icon from "./Icon.svelte";
                         <Icon id="facebook" color="white" styling="w-5 h-5 translate-y-0.5" />
                         <a 
                             href="https://facebook.com/uplionsserve"
-                            target="_blank"
+                            target="_blank noreferrer"
                             class="text-white">/uplionsserve</a>
                     </div>
                     <div class="flex items-center gap-2">
                         <Icon id="instagram" color="white" styling="w-5 h-5 " />
                         <a 
                             href="https://instagram.com/uplionsserve"
-                            target="_blank"
+                            target="_blank  noreferrer"
                             class="text-white">@uplionsserve</a>
                     </div>
                 </div>
