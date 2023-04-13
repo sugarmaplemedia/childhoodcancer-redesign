@@ -17,7 +17,7 @@ switch (direction) {
 
 <div class="
     flex flex-col {direction}">
-    <h2>
+    <h2 class="text-3xl">
         <slot>Section <span class="text-orange">Headline</span></slot>
     </h2>
     <div class="

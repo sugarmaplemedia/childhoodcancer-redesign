@@ -7,6 +7,7 @@ module.exports = {
           current: 'currentColor',
           'white': '#FFF',
           'offwhite': '#FDF5F5',
+          'black': '#000',
           'orange': '#FFB419',
           'orange-light': '#FFE3A6',
           'orange-super-light': '#FFF7E6',
