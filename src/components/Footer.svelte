@@ -87,7 +87,7 @@ import Icon from "./Icon.svelte";
                         <Icon id="instagram" color="white" styling="w-5 h-5 " />
                         <a 
                             href="https://instagram.com/uplionsserve"
-                            target="_blank  noreferrer"
+                            target="_blank noreferrer"
                             class="text-white">@uplionsserve</a>
                     </div>
                 </div>
