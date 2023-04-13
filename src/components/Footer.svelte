@@ -13,11 +13,15 @@ import Icon from "./Icon.svelte";
             <!-- Donate and Get Help buttons -->
             <div class="
                     flex md:flex-col gap-4">
-                <Button width={"fill"}>
+                <Button
+                    href="{import.meta.env.BASE_URL}/donate"
+                    width={"fill"}>
                     <Icon id="love" color={"navy-dark"} styling="w-4 h-4"/>
                     <span>Donate</span>
                 </Button>
-                <Button width={"fill"}>
+                <Button
+                    href="{import.meta.env.BASE_URL}/get-help"
+                    width={"fill"}>
                     <Icon id="hand" color={"navy-dark"} styling="w-4 h-4"/>
                     <span>Get Help</span>
                 </Button>
@@ -66,10 +70,11 @@ import Icon from "./Icon.svelte";
             <div class="
                     xl:col-span-3
                     flex flex-col items-center gap-4">
-                <img 
-                    src="{import.meta.env.BASE_URL}/graphics/logos/cc-logo-gold.svg"
-                    alt="Childhood Cancer Logo"
-                    class="w-3/4 max-w-[240px]">
+                <a href="{import.meta.env.BASE_URL}" class="w-3/4 max-w-[240px]">
+                    <img
+                        src="{import.meta.env.BASE_URL}/graphics/logos/cc-logo-gold.svg"
+                        alt="Childhood Cancer Logo">
+                </a>
                 <div class="w-full flex justify-center gap-8">
                     <div class="flex items-center gap-2">
                         <Icon id="facebook" color="white" styling="w-5 h-5 translate-y-0.5" />
