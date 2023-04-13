@@ -9,11 +9,11 @@
     {href} 
     target={newtab ? "_blank noreferrer" : "_self"}
     class="group
-        px-6 py-4 hover:scale-95
+        px-6 py-4 overflow-hidden
         relative inline-block
-        rounded-xl bg-orange-light
+        bg-orange-light rounded-xl
         text-navy-dark font-sans font-semibold uppercase no-underline
-        overflow-hidden
+        hover:scale-95
         transition-all
         {width == 'fit' ? 'w-fit' : 'w-full'}
         {styling}">
