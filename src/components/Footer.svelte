@@ -50,10 +50,10 @@ import Icon from "./Icon.svelte";
             <!-- Contact info -->
             <div class="flex flex-col items-center gap-4">
                 <div class="space-y-4">
-                    <div class="flex items-center gap-4">
+                    <a href="mailto:cc@uplionsserve.org" class="flex items-center gap-4">
                         <Icon id="mail" color="white" styling="w-5 h-5 translate-y-0.5" />
                         <p class="text-white">cc@uplionsserve.org</p>
-                    </div>
+                    </a>
                     <div class="flex items-center gap-4">
                         <Icon id="location" color="white" styling="w-5 h-5" />
                         <p class="text-white">
