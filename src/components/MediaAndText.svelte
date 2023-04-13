@@ -11,7 +11,7 @@
         w-5/6 max-w-4xl xl:px-0 mb-16
         flex flex-col items-center justify-center gap-8
         {!reverse ? 'lg:flex-row' : 'lg:flex-row-reverse'}">
-    {#if src.startsWith('/')}
+    {#if src.startsWith('/') || !src.includes("youtube")}
     <img
         {src}
         {alt}
