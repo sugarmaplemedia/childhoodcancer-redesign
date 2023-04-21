@@ -22,7 +22,7 @@
         </h1>
         <p class=" text-white">Since our project began, we have seen a rise in the number of families living in the Upper Peninsula of Michigan seeking help with a child battling cancer.</p>
         <p class="mb-2 text-lg font-bold text-white">As of December 2022, that number has increased by more <span class="text-orange">than twenty-fold!</span></p>
-        <Button href="{import.meta.env.BASE_URL}/donate">Join the fight</Button>
+        <Button href="{import.meta.env.BASE_URL}/donate" alt="Visit our donate page to support our cause.">Join the fight</Button>
     </div>
     <div class="
             w-full xl:min-w-[1600px] -mt-[15rem]

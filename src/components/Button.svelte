@@ -1,12 +1,14 @@
 <script lang="ts">
     export let href: string = "#"
+    export let alt: string = ""
     export let newtab: boolean = false
     export let width: "fit"|"fill" = "fit"
     export let styling: string = ""
 </script>
 
 <a
-    {href} 
+    {href}
+    aria-label={alt}
     target={newtab ? "_blank noreferrer" : "_self"}
     class="group
         px-6 py-4 overflow-hidden
