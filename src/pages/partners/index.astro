@@ -138,9 +138,14 @@ const partners: partner[] = [
     },
     {
         organization: "Tour Da Yoop, Eh",
+        description: "The Tour Da Yoop, Eh benefit for Childhood Cancer is a 1,200 mile bike tour around the perimeter of the Upper Peninsula! Enjoy endless nature and lakeside views while cycling across some of the safest roads in the United States.",
         logo: {
             src: `${import.meta.env.BASE_URL}/graphics/logos/tour-da-yoop-eh.png`,
             alt: "Tour Da Yoop, Eh logo",
+        },
+        coverPhoto: {
+            src: `${import.meta.env.BASE_URL}/images/covers/tour-da-yoop-eh.jpg`,
+            alt: "Tour Da Yoop, Eh cyclists on the road.",
         },
         link: "https://tourdayoopeh.com/",
     },
@@ -185,7 +190,8 @@ const partners: partner[] = [
 <!-- TODO: Description -->
 <ContentPageLayout
     title="Partners"
-    description="">
+    description=""
+    hero={{src: `${import.meta.env.BASE_URL}/images/banners/partners.jpg`, alt: "A building in downtown Negaunee."}}>
 
     <Group width="large" style="mb-16">
         <Headline>Spotlight</Headline>
@@ -195,23 +201,30 @@ const partners: partner[] = [
                     w-full px-8 py-4 
                     flex justify-center items-center overflow-hidden
                     relative
-                    bg-black rounded-t-3xl lg:rounded-tr-none lg:rounded-l-3xl">
+                    rounded-t-3xl lg:rounded-tr-none lg:rounded-l-3xl">
                 <img 
-                    src={partners[0].coverPhoto!.src} alt={partners[0].coverPhoto!.alt}
-                    class="absolute object-cover w-full h-full z-0 saturate-50 opacity-30" />
+                    src={partners[13].coverPhoto!.src} alt={partners[13].coverPhoto!.alt}
+                    class="absolute object-cover w-full h-full z-0 saturate-0 opacity-60" />
                 <img 
-                    src={partners[0].logo.src} alt={partners[0].logo.alt}
+                    src={partners[13].logo.src} alt={partners[13].logo.alt}
                     class="
-                        max-h-32 z-10" />
+                        max-h-48 z-10" />
             </div>
             <!-- Text -->
             <div class=" px-4 pt-6 pb-8 flex flex-col gap-4">
-                <h3>{partners[0].organization}</h3>
-                <p>{partners[0].description!}</p>
-                <Button href={partners[0].link}>Learn more</Button>
+                <h3>{partners[13].organization}</h3>
+                <p>{partners[13].description!}</p>
+                <Button href={partners[13].link}>Learn more</Button>
             </div>
         </div>
-        <!-- Large width cards with information about partner, along with cover photo and enlargened logo -->
+        <!-- TODO: Make interactive -->
+        <div class="flex gap-4 mt-4">
+            <span class="block w-2 h-2 rounded-full bg-orange"></span>
+            <span class="block w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)]"></span>
+            <span class="block w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)]"></span>
+            <span class="block w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)]"></span>
+            <span class="block w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)]"></span>
+        </div>
     </Group>
 
     <Group width="large">
