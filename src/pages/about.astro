@@ -1,7 +1,8 @@
 ---
 import ContentPageLayout from "@layouts/ContentPageLayout.astro";
-import Headline from "@components/_fragments/Headline.svelte";
 import Group from "@components/ContentPage/Group.svelte";
+import Headline from "@components/_fragments/Headline.svelte";
+import Reference from "@components/_fragments/Reference.svelte";
 import Image from "@components/ContentPage/Image.svelte";
 import Heading from "@components/Heading.svelte";
 ---
@@ -9,9 +10,10 @@ import Heading from "@components/Heading.svelte";
 <!-- TODO: Description -->
 <ContentPageLayout
     title="About"
-    description="">
+    description=""
+    style="pb-0">
 
-    <!-- Intro text -->
+    <!-- Our Mission -->
     <Group>
         <Headline id="mission" direction="left">Our <span class="text-orange">Mission</span></Headline>
         <p>Since our program begin, our mission has been to serve children and families from the Upper Peninsula who are battling childhood cancer. We believe that when a child is sick, the entire family is affected. Our support focuses on the individual along with the entire family.</p>
@@ -19,53 +21,72 @@ import Heading from "@components/Heading.svelte";
         <p>We rely solely on donations from private benefactors, sponsors, Lions Clubs and other community organizations, foundations and fundraisers. Every dollar earned goes directly to the families and to the programs that serve them.</p>
     </Group>
     
-    <!-- Impact: Media with caption -->
+    <!-- Our Cause -->
     <Group>
-        <h2>Impact</h2>
-        <Image src="/{images}/placeholder4k.jpg" alt="TODO: Placeholder" caption="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae." />
-    </Group>
-
-    <!-- Mission: Card and text -->
-    <Group>
-        <Heading size={2} icon="rocket">Mission</Heading>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aspernatur id eaque tempora exercitationem tenetur cum sapiente laborum fuga, at cupiditate, nesciunt hic vero odio voluptatum distinctio excepturi quis ab unde aut? Accusantium iste aliquam numquam nihil soluta, blanditiis modi?</p>
-        <div class="
-                px-6 py-8 mb-4
-                flex flex-col gap-4
-                bg-orange-super-light rounded-3xl drop-shadow-md
-                italic">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et autem eius hic laudantium rem, non cupiditate veritatis iusto iure molestias soluta!</p>
+        <Headline id="cause" direction="left">Our <span class="text-orange">Cause</span></Headline>
+        <p>Lions Clubs International has adopted Childhood Cancer as an initiative on a global level. Each year, more than 300,000 children are diagnosed with cancer across the world.<Reference href="#cause-ref-1">[1]</Reference> This means that a child is diagnosed with cancer every 2 minute.<Reference href="#cause-ref-1">[1]</Reference> The Lions have been exploring new ways in which Lions can help children with cancer in our own communities.</p>
+        <p>Michigan is ranked 5th in the nation for annual number of pediatric cancer diagnoses. 470 children are diagnosed in Michigan each year.<Reference href="#cause-ref-2">[2]</Reference> Our program has connected with 65 families in the U.P. The Upper Peninsula has the largest number of children per capita diagnosed with cancer in Michigan.<Reference href="cause-ref-2">[2]</Reference> U.P. families face daunting challenges because they must travel out of our area for care. Many times, one parent is forced to take an extended leave of absence or leave a job to be with their child. Medical treatment can go on for many years, leaving kids with physical, emotional, and sensory deficits.</p>
+        <div>
+            <p id="cause-ref-1" class="text-xs scroll-mt-36 md:scroll-mt-32"><sup>[1]</sup>: Statistics from the World Health organization</p>
+            <p id="cause-ref-2" class="text-xs scroll-mt-36 md:scroll-mt-32"><sup>[2]</sup>: Statistics from the Michigan Department of Health and Human Services</p>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem obcaecati incidunt repudiandae dolorem nobis vel. Expedita optio ipsa, nam, ullam a vel incidunt sunt culpa aspernatur laudantium iste, voluptatum quas?</p>
     </Group>
 
-    <!-- Vision: Card and text -->
-    <Group>
-        <Heading size={2} icon="glasses">Vision</Heading>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, aspernatur id eaque tempora exercitationem tenetur cum sapiente laborum fuga, at cupiditate, nesciunt hic vero odio voluptatum distinctio excepturi quis ab unde aut? Accusantium iste aliquam numquam nihil soluta, blanditiis modi?</p>
-        <div class="
-                px-6 py-8 my-2
-                flex flex-col gap-4
-                bg-navy-super-light rounded-3xl drop-shadow-md
-                text-lg italic">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et autem eius hic laudantium rem, non cupiditate veritatis iusto iure molestias soluta!</p>
+    <!-- Our Statistics | TODO: Clean this up -->
+    <Group width={"full"} style="overflow-hidden !gap-16 md:!gap-0">
+        
+        <!-- Data: Family Graph -->
+        <div class="w-full max-w-3xl px-8 sm:px-16 flex flex-col gap-4">
+            <Headline id="statistics" direction="left">Our <span class="text-orange">Statistics</span></Headline>
+            <img src={`${import.meta.env.BASE_URL}/graphics/data/cc-data-family-chart.svg`} alt="An illustrative chart showing the increase in recognized families over time.">
+            <!-- TODO: PUT TEXT HERE -->
+            <p>TODO</p>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem obcaecati incidunt repudiandae dolorem nobis vel. Expedita optio ipsa, nam, ullam a vel incidunt sunt culpa aspernatur laudantium iste, voluptatum quas?</p>
+        
+        <!-- Data: Michigan Total -->
+        <div class="w-full lg:pl-16 flex flex-col lg:flex-row-reverse items-end lg:items-center gap-8">
+            <img 
+                src={`${import.meta.env.BASE_URL}/graphics/data/cc-data-michigan-total.svg`}
+                alt="An illustrative graph showing the amount of children in Michigan diagnosed with cancer per year."
+                class="w-4/5 md:w-3/4 lg:w-1/2 max-w-xl" />
+            <div class="sm:w-5/6 md:w-3/4 lg:w-1/2 max-w-xl px-8 sm:px-16 md:pl-0 flex flex-col gap-4">
+                <p>According to recent figures, 11,000 children in the U.S. were diagnosed with a form of cancer in 2020. Michigan diagnoses approximately 470 children per year with some form of cancer. At any given time there are approximately 2000 children in Michigan battling this dreadful disease.</p>
+                <p class="font-bold">The Upper Peninsula of Michigan has the largest number of cases diagnosed per capita.</p>
+            </div>
+        </div>
+        
+        <!-- Data: Recovery -->
+        <div class="
+            w-full px-8 sm:px-16
+            flex flex-col md:flex-row xl:justify-start items-center sm:items-start md:items-center gap-8 lg:gap-16">
+            <img 
+                src={`${import.meta.env.BASE_URL}/graphics/data/cc-data-recovery.svg`}
+                alt="An illustrative graph showing the amount of children in Michigan diagnosed with cancer per year."
+                class="w-2/3 md:w-1/3 max-w-[300px] -translate-x-2 md:translate-x-0" />
+            <div class="sm:w-5/6 md:w-2/3 max-w-xl flex flex-col gap-4 md:translate-y-3">
+                <p>Within the past few decades, cancer research has produced promising treatments for pediatric cancer. 60% of children who have had cancer, have lifelong emotional, cognitive, physical, and developmental deficits. The American Cancer Society <a href="https://www.cancer.org/cancer/cancer-in-children/key-statistics.html">provides the most recent estimates and statistics</a> for cancer in children in the United States.</p>
+                <p class="font-bold">Currently in the U.S., the recovery rate for childhood cancer is 84%.</p>
+            </div>
+        </div>
+
+        <!-- Funding -->
+        <div class="
+                w-full xl:pl-16 mt-8 md:mt-32 lg:mt-8
+                lg:flex lg:flex-row-reverse lg:justify-end lg:items-center">
+            <img
+                src={`${import.meta.env.BASE_URL}/graphics/data/cc-data-funding.svg`}
+                alt="An illustrative graph showing the amount of children in Michigan diagnosed with cancer per year."
+                class="
+                    lg:w-2/3
+                    scale-125 sm:scale-110 lg:scale-100
+                    -translate-x-6 lg:translate-x-0 sm:translate-y-2 lg:translate-y-1" />
+            <div class="px-8 pb-8 mt-8 flex justify-center bg-navy lg:bg-transparent">
+                <div class="max-w-xl flex flex-col gap-4">
+                    <p class="text-white lg:text-navy">The Childhood Cancer program has worked hard and received support from several organizations. Fundraisers and donations made by Lions, other organizations and individuals earned over $30,000. Tour Da Yoop, Eh earned over $50,000 in 2022. Graymont and Superior Health Foundation provided grants worth over $25,000. A Legacy Bequeathment has also provided funding.</p>
+                    <p class="text-white lg:text-navy font-bold">In total, The U.P. Lions Serve Childhood Cancer Program has raised over $100,000 through fundraisers, individual donations, and grants!</p>
+                </div>
+            </div>
+        </div>
     </Group>
 
-    <!-- History: long-form text -->
-    <Group>
-        <Heading size={2}>History</Heading>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi aperiam sapiente, unde quos incidunt exercitationem repellat. Neque architecto atque sapiente minus a commodi porro quisquam quibusdam debitis autem ad vel, expedita repellat! Tempore velit deserunt facilis amet ut debitis, temporibus rerum dolor. Magnam, fugit harum.</p>
-        <Image src="/images/placeholder4k.jpg" alt="TODO: Placeholder" caption="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae." />
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque praesentium numquam hic inventore rem et perspiciatis veniam quod, culpa, repellendus quis assumenda, optio fuga quaerat. Accusamus reprehenderit exercitationem explicabo, quos illum illo beatae saepe repellat dolorem totam ex voluptates quidem eius temporibus hic minus sequi reiciendis, asperiores expedita! Saepe, pariatur vel illum optio, quis doloribus asperiores necessitatibus qui corporis deleniti ipsum reprehenderit mollitia vero facere nihil, consequuntur accusantium. Saepe, veritatis?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae odit debitis temporibus. Dicta est ratione ab sed facere iste modi.</p>
-    </Group>
-
-    <!-- Funding -->
-    <Group>
-        <Heading size={2}>Funding</Heading>
-        <Image src="/images/placeholder4k.jpg" alt="TODO: Placeholder" caption="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae." />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, doloremque quis rem exercitationem veniam vitae enim ab omnis quasi laudantium, asperiores iusto iure. Eos quod obcaecati distinctio suscipit aliquid dolor quam, voluptatibus, ea neque odio unde aspernatur saepe exercitationem adipisci numquam dolorem nam maiores error.</p>
-    </Group>
 </ContentPageLayout>

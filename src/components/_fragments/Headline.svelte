@@ -16,8 +16,7 @@ switch (direction) {
 
 </script>
 
-<div class="
-        flex flex-col {direction}">
+<div class="w-full flex flex-col {direction}">
     <h2 {id} class="text-3xl scroll-mt-36 md:scroll-mt-32">
         <slot>Section <span class="text-orange">Headline</span></slot>
     </h2>

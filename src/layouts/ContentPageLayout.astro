@@ -12,6 +12,7 @@ interface Props {
     description: string
     robots?: boolean
     hero?: hero
+    style?: string
 }
 
 const {
@@ -20,7 +21,9 @@ const {
     hero = {
         src: "https://placehold.co/1920x560.jpg",
         alt: "Placeholder image"
-    }} = Astro.props;
+    },
+    style = ""
+} = Astro.props;
 ---
 
 <BaseLayout
@@ -52,10 +55,11 @@ const {
                 pointer-events-none">
     </section>
 
-    <article class="
+    <article class={`
             w-full py-12 sm:pt-16 lg:pt-24
             flex flex-col items-center gap-10
-            bg-white">
+            bg-white
+            ${style}`}>
         <Group>
             <h1>{title}</h1>
         </Group>
