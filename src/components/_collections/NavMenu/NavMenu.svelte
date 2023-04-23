@@ -176,24 +176,16 @@
             text-navy
             transition-all
             {MOBILE_MENU_IS_OPEN ? `translate-x-0` : `translate-x-full lg:translate-x-0`}">
-        <!-- <NavFolder
-            href={`${import.meta.env.BASE_URL}/programs#events`}
-            {page} pageCheck="Events"
-            position="-left-40 xl:-left-[11.5rem]">
-            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh`} dropdown>Tour Da Yoop, Eh</NavLink>
+        <NavFolder
+            href={`${import.meta.env.BASE_URL}/partners`}
+            {page} pageCheck="Partners"
+            position="-left-40 xl:-left-[11rem]">
+            <NavLink activePage={page == "Partners"} href={`${import.meta.env.BASE_URL}/partners/tour-da-yoop-eh`} dropdown>Tour Da Yoop, Eh</NavLink>
             <NavSpacer />
-            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/shf-annual-gala`} dropdown>SHF Annual Gala</NavLink>
-        </NavFolder> -->
-        <!-- <NavFolder
-            href={`${import.meta.env.BASE_URL}/programs#initiatives`}
-            {page} pageCheck="Initiatives"
-            position="-left-36 xl:-left-[10.5rem]">
-            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/camp-quality`} dropdown>Camp Quality</NavLink>
+            <NavLink activePage={page == "Partners"} href={`${import.meta.env.BASE_URL}/partners/shf-annual-gala`} dropdown>SHF Annual Gala</NavLink>
             <NavSpacer />
-            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/maggies-wigs-4-kids`} dropdown>Maggies Wigs 4 Kids</NavLink>
-            <NavSpacer />
-            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/kids-kicking-cancer`} dropdown>Kids Kicking Cancer</NavLink>
-        </NavFolder> -->
+            <NavLink activePage={page == "Partners"} href={`${import.meta.env.BASE_URL}/partners`} dropdown>All Partners</NavLink>
+        </NavFolder>
         <!-- <NavFolder
             href={`${import.meta.env.BASE_URL}/resources`}
             {page} pageCheck="Resources"
@@ -206,7 +198,7 @@
             <NavSpacer />
             <NavLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/learn`} dropdown>Learn</NavLink>
         </NavFolder> -->
-        <!-- <NavLink activePage={page == "About"} href={`${import.meta.env.BASE_URL}/about`}>About</NavLink> -->
+        <NavLink activePage={page == "About"} href={`${import.meta.env.BASE_URL}/about`}>About</NavLink>
         <NavLink activePage={page == "Get Help"} href={`${import.meta.env.BASE_URL}/get-help`}>Get Help</NavLink>
     </ul>
     <a 
