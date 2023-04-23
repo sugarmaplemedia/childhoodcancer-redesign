@@ -2,6 +2,7 @@
 import Layout from "@layouts/BaseLayout.astro";
 import Hero from "@components/home/Hero.svelte";
 import OurPurpose from "@components/home/OurPurpose.svelte";
+import OurProgress from "@components/home/OurProgress.svelte";
 import MediaAndText from "@components/MediaAndText.svelte";
 import Button from "@components/Button.svelte";
 import Cards from "@components/Cards.svelte";
@@ -66,8 +67,11 @@ import CallToAction from "@components/CallToAction.svelte";
 
 
 
-    <!-- TODO: Make desktop responsive, Add (Read More) on longer texts -->
+    <!-- TODO: Improve desktop responsive, Add (Read More) on longer texts -->
     <OurHeroes client:load />
+
+    <!-- TODO: Make interactive? -->
+    <OurProgress />
 
     <CallToAction
         src={`${import.meta.env.BASE_URL}/images/GreatLakes-0.1q.jpg`}

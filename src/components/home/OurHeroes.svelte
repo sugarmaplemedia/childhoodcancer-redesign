@@ -57,7 +57,7 @@ const handleClick_next = () => {
 
 </script>
 
-<section class="w-full pt-96 lg:pt-16 mb-32">
+<section class="w-full pt-96 lg:pt-16 lg:mb-24">
     {#key current.image}
     <img 
         transition:fade={{duration: 400}}
