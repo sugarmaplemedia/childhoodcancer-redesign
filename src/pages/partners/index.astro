@@ -1,3 +1,231 @@
 ---
+import ContentPageLayout from "@layouts/ContentPageLayout.astro";
+import Group from "@components/ContentPage/Group.svelte";
+import Headline from "@components/_fragments/Headline.svelte";
+import Button from "@components/Button.svelte";
+import PartnerGridItem from "@components/partners/PartnerGridItem.svelte";
+
+type partner = {
+    organization: string,
+    description?: string,
+    logo: {
+        src: string,
+        alt: string,
+        span?: number
+    },
+    coverPhoto?: {
+        src: string,
+        alt: string
+    },
+    link: string
+}
+
+const partners: partner[] = [
+    {
+        organization: "Camp Quality USA",
+        description: "Camp Quality is a nonprofit organization that has been serving children with cancer and their families for over 30 years by providing year-round programs, experiences, and companionship, at no cost to the family.",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/camp-quality-usa.png`,
+            alt: "Camp Quality USA logo",
+        },
+        coverPhoto: {
+            src: `${import.meta.env.BASE_URL}/images/covers/camp-quality-usa.jpg`,
+            alt: "" // TODO: this alt
+        },
+        link: "https://www.campqualityusa.org/mi/",
+    },
+    {
+        organization: "Kids Kicking Cancer",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/kids-kicking-cancer.png`,
+            alt: "Kids Kicking Cancer logo",
+        },
+        link: "https://kidskickingcancer.org/",
+    },
+    {
+        organization: "Maggie's Wigs for Kids",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/maggies-wigs-4-kids.png`,
+            alt: "Maggie's Wigs for Kids logo",
+            span: 2
+        },
+        link: "http://www.wigs4kids.org",
+    },
+    {
+        organization: "Northwoods AirLifeLine",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/northwoods-airlifeline.png`,
+            alt: "Northwoods AirLifeLine logo",
+            span: 2
+        },
+        link: "https://www.northwoodsairlifeline.org",
+    },
+    {
+        organization: "Bay Cliff Health Camp",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/bay-cliff-health-camp.png`,
+            alt: "Bay Cliff Camp logo",
+        },
+        link: "https://baycliff.org",
+    },
+    {
+        organization: "Families of Children with Cancer",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/families-of-children-with-cancer.jpg`,
+            alt: "Families of Children with Cancer logo",
+        },
+        link: "https://www.focwc.org/",
+    },
+    {
+        organization: "Upper Peninsula Health Plan",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/upper-peninsula-health-plan.png`,
+            alt: "Upper Peninsula Health Plan logo",
+            span: 2
+        },
+        link: "https://www.uphp.com/",
+    },
+    {
+        organization: "Upper Peninsula Health System",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/upper-peninsula-health-system.png`,
+            alt: "Upper Peninsula Health System logo",
+        },
+        link: "https://www.mgh.org/",
+    },
+    {
+        organization: "Northern Michigan University Rural Health",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/nmu-rural-health.png`,
+            alt: "Northern Michigan University Rural Health logo",
+        },
+        link: "https://nmu.edu/ruralhealth/",
+    },
+    {
+        organization: "Lake State Superior University",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/lake-superior-state-university.png`,
+            alt: "Lake State Superior University logo",
+            span: 2
+        },
+        link: "https://www.lssu.edu/",
+    },
+    {
+        organization: "UPCAP",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/upcap.png`,
+            alt: "Upper Peninsula Commission for Area Progress (UPCAP) logo",
+            span: 2
+        },
+        link: "http://upcap.org/",
+    },
+    {
+        organization: "Superior Health Foundation",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/superior-health-foundation.png`,
+            alt: "Superior Health Foundation logo",
+            span: 2
+        },
+        link: "https://superiorhealthfoundation.org/",
+    },
+    {
+        organization: "Defense Against Diabetes",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/defense-against-diabetes.svg`,
+            alt: "Defense Against Diabetes logo",
+        },
+        link: "https://uplionsserve.org/dad/",
+    },
+    {
+        organization: "Tour Da Yoop, Eh",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/tour-da-yoop-eh.png`,
+            alt: "Tour Da Yoop, Eh logo",
+        },
+        link: "https://tourdayoopeh.com/",
+    },
+    {
+        organization: "Call of the Yooper",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/call-of-the-yooper.png`,
+            alt: "Call of the Yooper logo",
+        },
+        link: "https://calloftheyooper.com/",
+    },
+    {
+        organization: "Motts Children's Hospital",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/motts-childrens-hospital.png`,
+            alt: "Motts Children's Hospital logo",
+        },
+        link: "https://www.mottchildren.org/",
+    },
+    {
+        organization: "HSHS St. Vincent Children's Hospital",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/hshs-st-vincent-childrens-hospital.png`,
+            alt: "HSHS St. Vincent Children's Hospital logo",
+            span: 2
+        },
+        link: "https://www.hshs.org/stvincentchildrenshospital",
+    },
+    {
+        organization: "Children's Wisconsin",
+        logo: {
+            src: `${import.meta.env.BASE_URL}/graphics/logos/childrens-wisconsin.png`,
+            alt: "Children's Wisconsin logo",
+            span: 2
+        },
+        link: "https://childrenswi.org/",
+    },
+]
 
 ---
+
+<!-- TODO: Description -->
+<ContentPageLayout
+    title="Partners"
+    description="">
+
+    <Group width="large" style="mb-16">
+        <Headline>Spotlight</Headline>
+        <div class=" bg-white rounded-3xl shadow-lg lg:flex gap-4">
+            <!-- Cover and logo -->
+            <div class="
+                    w-full px-8 py-4 
+                    flex justify-center items-center overflow-hidden
+                    relative
+                    bg-black rounded-t-3xl lg:rounded-tr-none lg:rounded-l-3xl">
+                <img 
+                    src={partners[0].coverPhoto!.src} alt={partners[0].coverPhoto!.alt}
+                    class="absolute object-cover h-full z-0 saturate-50 opacity-30" />
+                <img 
+                    src={partners[0].logo.src} alt={partners[0].logo.alt}
+                    class="
+                        max-h-32 z-10" />
+            </div>
+            <!-- Text -->
+            <div class=" px-4 pt-6 pb-8 flex flex-col gap-4">
+                <h3>{partners[0].organization}</h3>
+                <p>{partners[0].description!}</p>
+                <Button href={partners[0].link}>Learn more</Button>
+            </div>
+        </div>
+        <!-- Large width cards with information about partner, along with cover photo and enlargened logo -->
+    </Group>
+
+    <Group>
+        <Headline>All Partners</Headline>
+        <!-- Small width cards with partner logo -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {partners.map(partner => (
+                <PartnerGridItem
+                    organization={partner.organization}
+                    logo={{src: partner.logo.src, alt: partner.logo.alt}}
+                    span={partner.logo.span}
+                    href={partner.link} />
+            ))}
+        </div>
+    </Group>
+
+</ContentPageLayout>
