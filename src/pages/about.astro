@@ -1,24 +1,28 @@
 ---
 import ContentPageLayout from "@layouts/ContentPageLayout.astro";
+import Headline from "@components/_fragments/Headline.svelte";
 import Group from "@components/ContentPage/Group.svelte";
 import Image from "@components/ContentPage/Image.svelte";
 import Heading from "@components/Heading.svelte";
 ---
 
+<!-- TODO: Description -->
 <ContentPageLayout
     title="About"
-    description="TODO: Description"
-    heroSrc="/images/placeholder4k.jpg" heroAlt="TODO: Placeholder">
+    description="">
 
     <!-- Intro text -->
     <Group>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt alias vel quod nihil quaerat beatae necessitatibus, nemo reiciendis ut temporibus.</p>
+        <Headline id="mission" direction="left">Our <span class="text-orange">Mission</span></Headline>
+        <p>Since our program begin, our mission has been to serve children and families from the Upper Peninsula who are battling childhood cancer. We believe that when a child is sick, the entire family is affected. Our support focuses on the individual along with the entire family.</p>
+        <p>The Childhood Cancer program provides grants to families to minimize the financial hardship that is directly attributable to their child’s diagnosis. This includes needs for travel, medical and household bills.</p>
+        <p>We rely solely on donations from private benefactors, sponsors, Lions Clubs and other community organizations, foundations and fundraisers. Every dollar earned goes directly to the families and to the programs that serve them.</p>
     </Group>
     
     <!-- Impact: Media with caption -->
     <Group>
         <h2>Impact</h2>
-        <Image src="/images/placeholder4k.jpg" alt="TODO: Placeholder" caption="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae." />
+        <Image src="/{images}/placeholder4k.jpg" alt="TODO: Placeholder" caption="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae." />
     </Group>
 
     <!-- Mission: Card and text -->
