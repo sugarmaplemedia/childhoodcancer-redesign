@@ -65,7 +65,7 @@ const handleClick_next = () => {
         alt={current.alt}
         class="
             w-full xl:w-auto max-w-md
-            absolute left-1/2 lg:left-auto lg:right-0 -z-30
+            absolute left-1/2 lg:left-auto lg:right-0 z-0
             -translate-x-1/2 -translate-y-96 lg:translate-x-0 lg:-translate-y-12
             rounded-3xl"/>
     {/key}

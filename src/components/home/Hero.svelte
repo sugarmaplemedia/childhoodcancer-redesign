@@ -8,7 +8,7 @@
         relative
         
         before:w-full before:h-full
-        before:absolute before:top-0 before:left-0 before:-z-20
+        before:absolute before:top-0 before:left-0 before:-z-0
         before:bg-navy
         before:bg-[url('/childhood-cancer/images/landing-hero.jpg')] before:bg-cover before:bg-left sm:before:bg-center
         before:brightness-65 before:saturate-75">
@@ -27,7 +27,7 @@
     <div class="
             w-full xl:min-w-[1600px] -mt-[15rem]
             absolute bottom-24 xl:bottom-auto z-10 overflow-x-hidden 
-            translate-y-32 xl:translate-y-0 scale-[3] sm:scale-[2] xl:scale-110 -rotate-9 -left-8
+            translate-y-32 xl:translate-y-0 2xl:-translate-y-1.5 scale-[3] sm:scale-[2] xl:scale-110 -rotate-9 -left-8
             pointer-events-none">
         <img src="{import.meta.env.BASE_URL}/graphics/swooshes/Asset 2.svg" alt="" class="select-none" />
     </div>

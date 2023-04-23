@@ -15,7 +15,7 @@
         {src} {alt}
         class="
             w-full h-full
-            absolute top-0 left-0 -z-20
+            absolute top-0 left-0 z-0
             object-cover
             brightness-65 saturate-75"/>
     <div class="
