@@ -30,19 +30,19 @@ import Icon from "./Icon.svelte";
             <!-- Page Links -->
             <div class="flex justify-around">
                 <div>
-                    <h4 class="mb-2 text-white font-sans font-bold uppercase">Events</h4>
+                    <h4 class="mb-2 text-white font-sans font-bold uppercase">Partners</h4>
                     <menu class="flex flex-col gap-1">
-                        <li><a href="{import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh">Tour Da Yoop, Eh</a></li>
-                        <li><a href="{import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh">SHF Annual Gala</a></li>
-                        <li><a href="{import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh">I Trekked the U.P.</a></li>
+                        <li><a href="{import.meta.env.BASE_URL}/partners/tour-da-yoop-eh">Tour Da Yoop, Eh</a></li>
+                        <li><a href="{import.meta.env.BASE_URL}/partners/superior-health-foundation">SHF Annual Gala</a></li>
+                        <li><a href="{import.meta.env.BASE_URL}/partners">All Partners</a></li>
                     </menu>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-white font-sans font-bold uppercase">initiatives</h4>
+                    <h4 class="mb-2 text-white font-sans font-bold uppercase">Pages</h4>
                     <menu class="flex flex-col gap-1">
-                        <li><a href="{import.meta.env.BASE_URL}/programs/initiatives/camp-quality">Camp Quality</a></li>
-                        <li><a href="{import.meta.env.BASE_URL}/programs/initiatives/maggies-wigs-4-kids">Maggies Wigs 4 Kids</a></li>
-                        <li><a href="{import.meta.env.BASE_URL}/programs/initiatives/kids-kicking-cancer">Kids Kicking Cancer</a></li>
+                        <li><a href="{import.meta.env.BASE_URL}/about">About Us</a></li>
+                        <li><a href="{import.meta.env.BASE_URL}/get-help">Get Help</a></li>
+                        <li><a href="{import.meta.env.BASE_URL}/donate">Donate</a></li>
                     </menu>
                 </div>
             </div>
