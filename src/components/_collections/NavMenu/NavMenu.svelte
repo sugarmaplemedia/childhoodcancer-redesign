@@ -186,6 +186,7 @@
             <NavSpacer />
             <NavLink activePage={page == "Partners"} href={`${import.meta.env.BASE_URL}/partners`} dropdown>All Partners</NavLink>
         </NavFolder>
+        <!-- TODO: Implement Resources pages -->
         <!-- <NavFolder
             href={`${import.meta.env.BASE_URL}/resources`}
             {page} pageCheck="Resources"
