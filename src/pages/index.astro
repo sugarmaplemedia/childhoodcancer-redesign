@@ -30,11 +30,11 @@ import CallToAction from "@components/CallToAction.svelte";
         <Button href={`${import.meta.env.BASE_URL}/about#mission`} alt="Learn more about our mission">Learn more</Button>
     </MediaAndText>
     
-    <!-- TODO: Add swipe interactivity -->
+    <!-- TODO: Add swipe interactivity, update Bay Cliff photo -->
     <Cards client:load
         button={
             {
-                text: "View All Initiatives",
+                text: "View All Partners",
                 href: `${import.meta.env.BASE_URL}/programs#initiatives`
             }
         }
@@ -42,26 +42,26 @@ import CallToAction from "@components/CallToAction.svelte";
             {
                 src: "/images/Maggies-Wigs-4-Kids-cover.jpg",
                 alt: "Wigs along a wall",
-                href: "/initiatives/maggies-wigs-4-kids",
+                href: "/partners#maggies-wigs-4-kids",
                 title: "Maggies Wigs 4 Kids",
                 text: "Providing hair and skin restoration services to our children in the U.P."
             },
             {
                 src: "/images/Camp-Quality-cover.jpg",
                 alt: "Kids sitting around a campfire",
-                href: "/initiatives/camp-quality-michigan",
-                title: "Camp Quality Michigan",
-                text: "Providing year-round programs and experiences at no cost with camps throughout Michigan at 4 different locations."
+                href: "/partners#bay-cliff-health-camp",
+                title: "Bay Cliff Health Camp",
+                text: "Providing a year-round, nonprofit therapy and wellness center for children and adults with physical disabilities."
             },
             {
                 src: "/images/Kids-Kicking-Cancer-cover.jpg",
                 alt: "Kids in karate position in a dojo",
-                href: "/initiatives/kids-kicking-cancer",
+                href: "/partners#kids-kicking-cancer",
                 title: "Kids Kicking Cancer",
                 text: "Providing martial arts and meditation/pain control classes to U.P. children and their siblings."
             }
         ]}>
-        <span slot="headline">Our <span class="text-orange">Initiatives</span></span>
+        <span slot="headline">Our <span class="text-orange">Partners</span></span>
         <span slot="text">We share information and connect families to other nonprofits that may help, either in-person or remotely.</span>
     </Cards>
 
