@@ -52,7 +52,6 @@ const decSpotlightPartner = () => position = (position - 1 + partners.length) % 
     </div>
     {/key}
 </div>
-<!-- TODO: Make interactive -->
 <div bind:this={buttonBox} class="flex items-center gap-4 mt-4">
     <button tabindex="0"
         on:click={decSpotlightPartner}
