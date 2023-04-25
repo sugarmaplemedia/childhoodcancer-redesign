@@ -46,6 +46,7 @@
         font-menu uppercase font-medium text-xl">
     <!-- Back Arrow -->
     <a 
+        aria-label="Go back to U.P. Lions Serve home page"
         href="https://uplionsserve.org"
         class="
             w-8 h-8 mr-[36vw] lg:w-6 lg:h-6 lg:pt-6 lg:ml-8 lg:mr-0 xl:w-8 xl:h-8 xl:pt-5 xl:ml-16
@@ -56,12 +57,15 @@
             <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
     </a>
     <!-- CC Logo -->
-    <a href={`${import.meta.env.BASE_URL}`} class="
-        w-52 mx-auto
-        absolute top-4 z-10 lg:left-20 lg:top-4 xl:left-32
-        md:hover:translate-y-2
-        hover:cursor-pointer
-        transition-all bounce">
+    <a 
+        aria-label="Go back to Childhood Cancer home page"
+        href={`${import.meta.env.BASE_URL}`} 
+        class="
+            w-52 mx-auto
+            absolute top-4 z-10 lg:left-20 lg:top-4 xl:left-32
+            md:hover:translate-y-2
+            hover:cursor-pointer
+            transition-all bounce">
         <svg viewBox="0 0 422.99 230.95">
             <defs>
               <style>
