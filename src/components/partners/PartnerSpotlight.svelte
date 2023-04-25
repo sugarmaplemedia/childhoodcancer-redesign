@@ -27,7 +27,7 @@ const incSpotlightPartner = () => position = (position + 1) % partners.length
 const decSpotlightPartner = () => position = (position - 1 + partners.length) % partners.length
 </script>
 
-<div class="lg:h-72 bg-white rounded-3xl shadow-lg lg:flex gap-4">
+<div class="lg:h-80 bg-white rounded-3xl shadow-lg lg:flex gap-4">
     <!-- Cover and logo -->
     {#key position}
     <div in:fade class="
