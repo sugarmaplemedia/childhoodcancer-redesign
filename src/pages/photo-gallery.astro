@@ -9,15 +9,19 @@ type photo = {
     thumbnailSrc: string,
 }
 
-const photos: photo[] = await Astro.glob("/public/photo-gallery/*.jpg")
-    .then(files => files.map(file => {
-        const fileName = file.default.slice(file.default.lastIndexOf("/") + 1)
-        return { 
-            alt: "",
-            src: `${import.meta.env.BASE_URL}/photo-gallery/${fileName}`,
-            thumbnailSrc: `${import.meta.env.BASE_URL}/photo-gallery/thumbnails/${fileName}`
-        } as photo
-    }))
+const photosGlob = Object.values(import.meta.glob("/public/images/gallery/*.jpg", {eager: true, as: "url"}))
+// console.log(photosGlob);
+
+const photos: photo[] = []
+for (const path of photosGlob) {
+    const fileName = (import.meta.env.PROD ? `${path.slice(path.lastIndexOf("/") + 1, path.lastIndexOf(".") - 9)}.jpg` : path.slice(path.lastIndexOf("/") + 1))
+    photos.push({ 
+        alt: "",
+        src: `${import.meta.env.BASE_URL}/images/gallery/${fileName}`,
+        thumbnailSrc: `${import.meta.env.BASE_URL}/images/gallery/thumbnails/${fileName}`
+    })
+}
+
 ---
 
 <!-- TODO: Description -->
