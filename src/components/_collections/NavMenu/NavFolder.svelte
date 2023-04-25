@@ -24,7 +24,7 @@
 
 </script>
 
-<span class="group
+<li class="group
         relative">
     <div class="flex justify-center items-center gap-4 lg:block">
         <NavLink activePage={page == pageCheck} {href}>{pageCheck}</NavLink>
@@ -53,4 +53,4 @@
             {folderIsOpen ? 'visible scale-y-100 max-h-60 lg:max-h-none' : 'invisible scale-y-0 max-h-0 lg:max-h-none lg:scale-y-100 lg:visible'}">
         <slot />
     </div>
-</span>
+</li>
