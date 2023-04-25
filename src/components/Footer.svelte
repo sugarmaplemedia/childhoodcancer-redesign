@@ -4,7 +4,7 @@ import Icon from "./Icon.svelte";
 
 </script>
 
-<footer>
+<footer class="relative z-0">
     <div class="text-white bg-navy flex flex-col items-center pt-16 pb-8">
         <div class="
                 w-full max-w-md md:max-w-3xl xl:max-w-5xl px-8
