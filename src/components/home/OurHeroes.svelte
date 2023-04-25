@@ -15,8 +15,8 @@ let content = [
         image: "Preslie.jpg",
         alt: "Baby girl in a super hero outfit and medical gear",
         name: "Preslie",
-        heading: "Preslie is continuing to undergo treatment at Children’s Hospital in Milwaukee, Wisconsin.",
-        story: "The Lions clubs of the UP can help those affected by childhood cancer to “Survive and Thrive”. The UP Lions childhood cancer program has helped many families thus far, including 4-year-old Preslie (in the photo), with funds for travel, food, and medical expenses. On their last day of treatment, children get to ring the Remission Bell at Milwaukee Children’s Hospital. Preslie got to do just that on September 12th, 2022, marking the end of 855 days of treatment!"
+        heading: "On September 12th, 2022, Preslie got to ring the Milwaukee Children's Hospital bell, marking the end of 855 days of treatment!",
+        story: "The Lions clubs of the UP can help those affected by childhood cancer to “Survive and Thrive”. The UP Lions childhood cancer program has helped many families thus far, including 4-year-old Preslie (in the photo), with funds for travel, food, and medical expenses. On their last day of treatment, children get to ring the Remission Bell at Milwaukee Children’s Hospital."
     },
     {
         image: "Abram.jpg",

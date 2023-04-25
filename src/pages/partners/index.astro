@@ -208,13 +208,13 @@ const setSpotlightPartner = (partnerId: number) => {
     description=""
     hero={{src: `${import.meta.env.BASE_URL}/images/banners/partners.jpg`, alt: "Tour Da Yoop, Eh cyclists facing the Mackinac Bridge."}}>
 
-    <Group width="large" style="mb-16">
+    <!-- <Group width="large" style="mb-16">
         <Headline>Spotlight</Headline>
         <PartnerSpotlight partners={[partners[13], partners[11]]} client:load />
-    </Group>
+    </Group> -->
 
     <Group width="large">
-        <Headline id="all">All Partners</Headline>
+        <!-- <Headline id="all">All Partners</Headline> -->
         <!-- Small width cards with partner logo -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
             {partners.map(partner => (

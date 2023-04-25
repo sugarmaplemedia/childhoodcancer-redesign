@@ -7,7 +7,7 @@ let content = [
     {
         icon: "car",
         title: "Travel Costs",
-        description: "To receive care, our families must travel long distances. Our grants assist with travel costs, such as gas food, and accomodations."
+        description: "To receive care, our families must travel long distances. Our grants assist with travel costs, such as gas, food, and accomodations."
     },
     {
         icon: "love",

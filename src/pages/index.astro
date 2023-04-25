@@ -8,6 +8,9 @@ import Button from "@components/Button.svelte";
 import Cards from "@components/Cards.svelte";
 import OurHeroes from "@components/home/OurHeroes.svelte";
 import CallToAction from "@components/CallToAction.svelte";
+import Group from "@components/ContentPage/Group.svelte";
+import PartnerSpotlight from "@components/partners/PartnerSpotlight.svelte";
+import Headline from "@components/_fragments/Headline.svelte";
 ---
 
 <Layout
@@ -34,6 +37,38 @@ import CallToAction from "@components/CallToAction.svelte";
             <p>Our mission is to serve children and families from the Upper Peninsula who are battling childhood cancer. We believe that when a child is sick, the entire family is affected. Our support focuses on the individual along with the entire family.</p>
             <Button href={`${import.meta.env.BASE_URL}/about#mission`} alt="Learn more about our mission">Learn more</Button>
         </MediaAndText>
+
+        <Group>
+            <Headline>Spotlight <span class="text-orange">Partners</span></Headline>
+            <PartnerSpotlight partners={[
+                {
+                    organization: "Tour Da Yoop, Eh",
+                    description: "The Tour Da Yoop, Eh benefit for Childhood Cancer is a 1,200 mile bike tour around the perimeter of the Upper Peninsula! Enjoy endless nature and lakeside views while cycling across some of the safest roads in the United States.",
+                    logo: {
+                        src: `${import.meta.env.BASE_URL}/graphics/logos/tour-da-yoop-eh.png`,
+                        alt: "Tour Da Yoop, Eh logo",
+                    },
+                    coverPhoto: {
+                        src: `${import.meta.env.BASE_URL}/images/covers/tour-da-yoop-eh.jpg`,
+                        alt: "Tour Da Yoop, Eh cyclists on the road.",
+                    },
+                    link: "https://tourdayoopeh.com/",
+                },
+                {
+                    organization: "Superior Health Foundation",
+                    description: "The Superior Health Foundation is a health-centered, grant-giving organization that provides funding to address equipment, health education and program needs for the residents of the Upper Peninsula.",
+                    logo: {
+                        src: `${import.meta.env.BASE_URL}/graphics/logos/superior-health-foundation.png`,
+                        alt: "Superior Health Foundation logo",
+                        span: 2
+                    },
+                    coverPhoto: {
+                        src: `${import.meta.env.BASE_URL}/images/covers/superior-health-foundation.jpg`,
+                        alt: "Ballroom holding the SHF 2022 Gala",
+                    },
+                    link: "https://superiorhealthfoundation.org/",
+                } ]} client:visible />
+        </Group>
         
         <!-- TODO: Add swipe interactivity, update Bay Cliff photo -->
         <Cards client:visible
@@ -58,13 +93,13 @@ import CallToAction from "@components/CallToAction.svelte";
                     title: "Bay Cliff Health Camp",
                     text: "Providing a year-round, nonprofit therapy and wellness center for children and adults with physical disabilities."
                 },
-                { // UPHS
-                    src: "/images/cards/uphs-card.jpg",
-                    alt: "",
-                    href: "https://www.uphp.com/",
-                    title: "UPHS",
-                    text: "Providing a comprehensive health care system for the Upper Peninsula."
-                },
+                // { // UPHS
+                //     src: "/images/cards/uphs-card.jpg",
+                //     alt: "",
+                //     href: "https://www.uphp.com/",
+                //     title: "UPHS",
+                //     text: "Providing a comprehensive health care system for the Upper Peninsula."
+                // },
                 { // Maggie's Wigs 4 Kids
                     src: "/images/cards/maggies-wigs-4-kids-card.jpg",
                     alt: "Wigs along a wall",
