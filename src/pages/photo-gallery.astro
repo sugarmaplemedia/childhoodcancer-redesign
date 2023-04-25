@@ -27,7 +27,8 @@ for (const path of photosGlob) {
 <!-- TODO: Description -->
 <ContentPageLayout
     title="Photo Gallery"
-    description="">
+    description=""
+    hero={{src: `${import.meta.env.BASE_URL}/images/banners/photo-gallery.jpg`, alt: "Keith Smith and his grandson fishing during a Upper Michigan sunset"}}>
 
     <Group>
         <Gallery photos={photos} client:load />
