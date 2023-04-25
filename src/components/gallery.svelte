@@ -6,10 +6,7 @@ type photo = {
 }
 
 let lightBoxActive = false
-const lightBoxToggle = () => {
-    lightBoxActive = !lightBoxActive
-    console.log(lightBoxActive);
-}
+const lightBoxToggle = () => lightBoxActive = !lightBoxActive
 
 let currentPhoto: photo = {
     alt: "",
