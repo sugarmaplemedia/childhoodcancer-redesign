@@ -36,7 +36,7 @@ import CallToAction from "@components/CallToAction.svelte";
         </MediaAndText>
         
         <!-- TODO: Add swipe interactivity, update Bay Cliff photo -->
-        <Cards client:load
+        <Cards client:visible
             button={
                 {
                     text: "View All Partners",
@@ -116,10 +116,10 @@ import CallToAction from "@components/CallToAction.svelte";
 
 
         <!-- TODO: Improve desktop responsive, Add (Read More) on longer texts -->
-        <OurHeroes client:load />
+        <OurHeroes client:visible />
 
         <!-- TODO: Make interactive? -->
-        <OurProgress />
+        <OurProgress  />
 
         <CallToAction
             src={`${import.meta.env.BASE_URL}/images/GreatLakes-0.1q.jpg`}
