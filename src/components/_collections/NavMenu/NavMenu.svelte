@@ -200,6 +200,7 @@
             <NavLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/learn`} dropdown>Learn</NavLink>
         </NavFolder> -->
         <NavLink activePage={page == "About"} href={`${import.meta.env.BASE_URL}/about`}>About</NavLink>
+        <NavLink activePage={page == "Photo Gallery"} href={`${import.meta.env.BASE_URL}/photo-gallery`}>Photo Gallery</NavLink>
         <NavLink activePage={page == "Get Help"} href={`${import.meta.env.BASE_URL}/get-help`}>Get Help</NavLink>
     </ul>
     <a 
