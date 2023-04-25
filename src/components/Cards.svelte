@@ -11,14 +11,18 @@ type Card = {
     text: string
 }
 
-export let content: Card[]
+export let cards: Card[]
 export let button: { text: string, href: string }|null = null
+
+let position = 1
+$: previous = position != 0 ? position - 1 : cards.length - 1
+$: current = position
+$: next = position != cards.length - 1 ? position + 1 : 0
 
 </script>
 
 <section class="
         mb-16 px-12
-        relative
         flex flex-col items-center">
     {#if $$slots.headline}
     <Headline><slot name="headline" /></Headline>
@@ -27,17 +31,35 @@ export let button: { text: string, href: string }|null = null
     <p class="pt-2 pb-6 text-center"><slot name="text" /></p>
     {/if}
     <div class="
-            max-w-4xl w-full mb-8
-            flex lg:grid flex-col grid-cols-3 items-center lg:items-stretch gap-6">
-        {#each content as card}
-        <Card
-            src={`${import.meta.env.BASE_URL}/${card.src}`}
-            alt={card.alt}
-            href={`${import.meta.env.BASE_URL}/${card.href}`}>
-            <span slot="title">{card.title}</span>
-            <span slot="text">{card.text}</span>
-        </Card>
-        {/each}
+            max-w-4xl w-full mb-8 overflow-hidden
+            flex lg:grid grid-cols-3 items-stretch justify-center gap-6">
+        <div class="absolute -left-[17rem] hover:left-0 hover:right-0 hover:mx-auto">
+            <Card
+                src={`${import.meta.env.BASE_URL}/${cards[previous].src}`}
+                alt={cards[previous].alt}
+                href={`${import.meta.env.BASE_URL}/${cards[previous].href}`}>
+                <span slot="title">{cards[previous].title}</span>
+                <span slot="text">{cards[previous].text}</span>
+            </Card>
+        </div>
+        <div>
+            <Card
+                src={`${import.meta.env.BASE_URL}/${cards[current].src}`}
+                alt={cards[current].alt}
+                href={`${import.meta.env.BASE_URL}/${cards[current].href}`}>
+                <span slot="title">{cards[current].title}</span>
+                <span slot="text">{cards[current].text}</span>
+            </Card>
+        </div>
+        <div class="absolute -right-[17rem]">
+            <Card
+                src={`${import.meta.env.BASE_URL}/${cards[next].src}`}
+                alt={cards[next].alt}
+                href={`${import.meta.env.BASE_URL}/${cards[next].href}`}>
+                <span slot="title">{cards[next].title}</span>
+                <span slot="text">{cards[next].text}</span>
+            </Card>
+        </div>
     </div>
     {#if button}
     <Button href={button.href}>{button.text}</Button>
