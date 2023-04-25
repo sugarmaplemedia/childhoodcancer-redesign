@@ -1,10 +1,28 @@
 ---
 import ContentPageLayout from "@layouts/ContentPageLayout.astro";
+import PartnerSpotlight from "@components/partners/PartnerSpotlight.svelte";
+import Group from "@components/ContentPage/Group.svelte";
 ---
 
 <!-- Fix desc and hero -->
 <ContentPageLayout
-    title="Tour Da Yoop, Eh"
+    title="Tour Da Yoop, Eh" hideTitle
     description="">
+
+    <Group>
+        <PartnerSpotlight partners={[{
+            organization: "Tour Da Yoop, Eh",
+            description: "The Tour Da Yoop, Eh benefit for Childhood Cancer is a 1,200 mile bike tour around the perimeter of the Upper Peninsula! Enjoy endless nature and lakeside views while cycling across some of the safest roads in the United States.",
+            logo: {
+                src: `${import.meta.env.BASE_URL}/graphics/logos/tour-da-yoop-eh.png`,
+                alt: "Tour Da Yoop, Eh logo",
+            },
+            coverPhoto: {
+                src: `${import.meta.env.BASE_URL}/images/covers/tour-da-yoop-eh.jpg`,
+                alt: "Tour Da Yoop, Eh cyclists on the road.",
+            },
+            link: `${import.meta.env.BASE_URL}/partners/tour-da-yoop-eh`,
+        }]} />
+    </Group>
 
 </ContentPageLayout>

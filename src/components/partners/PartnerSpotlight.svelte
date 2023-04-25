@@ -52,6 +52,7 @@ const decSpotlightPartner = () => position = (position - 1 + partners.length) % 
     </div>
     {/key}
 </div>
+{#if partners.length > 1}
 <div bind:this={buttonBox} class="flex items-center gap-4 mt-4">
     <button tabindex="0"
         on:click={decSpotlightPartner}
@@ -78,3 +79,4 @@ const decSpotlightPartner = () => position = (position - 1 + partners.length) % 
         <Icon id="arrow" styling="w-6 h-6" />
     </button>
 </div>
+{/if}
