@@ -182,7 +182,7 @@
             position="-left-40 xl:-left-[11rem]">
             <NavLink activePage={page == "Tour Da Yoop, Eh"} href={`${import.meta.env.BASE_URL}/partners/tour-da-yoop-eh`} dropdown>Tour Da Yoop, Eh</NavLink>
             <NavSpacer />
-            <NavLink activePage={page == "SHF Annual Gala"} href={`${import.meta.env.BASE_URL}/partners/shf-annual-gala`} dropdown>SHF Annual Gala</NavLink>
+            <NavLink activePage={page == "Superior Health Foundation"} href={`${import.meta.env.BASE_URL}/partners/superior-health-foundation`} dropdown>Superior Health Foundation</NavLink>
             <NavSpacer />
             <NavLink activePage={page == "Partners#all"} href={`${import.meta.env.BASE_URL}/partners#all`} dropdown>All Partners</NavLink>
         </NavFolder>

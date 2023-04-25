@@ -17,7 +17,7 @@
     <a 
         href={activePage ? "#top" : href}
         class="
-            no-underline
+            text-center no-underline
             {!dropdown
                 ? `after:block after:h-0.5 after:mx-2 prefers
                    after:rounded-full
