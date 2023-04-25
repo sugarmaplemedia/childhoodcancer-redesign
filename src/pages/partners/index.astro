@@ -1,5 +1,6 @@
 ---
 import ContentPageLayout from "@layouts/ContentPageLayout.astro";
+import PartnerSpotlight from "@components/partners/PartnerSpotlight.svelte";
 import Group from "@components/ContentPage/Group.svelte";
 import Headline from "@components/_fragments/Headline.svelte";
 import Button from "@components/Button.svelte";
@@ -53,10 +54,15 @@ const partners: partner[] = [
     },
     {
         organization: "Northwoods AirLifeLine",
+        description: "Northwoods AirLifeline is a non-profit organization of volunteer pilots who donate their time and aircraft to help patients and their families with urgent medical needs for services not found locally.",
         logo: {
             src: `${import.meta.env.BASE_URL}/graphics/logos/northwoods-airlifeline.png`,
             alt: "Northwoods AirLifeLine logo",
             span: 2
+        },
+        coverPhoto: {
+            src: `${import.meta.env.BASE_URL}/images/covers/northwoods-airlifeline.jpg`,
+            alt: "Northwoods AirLifeLine plane and operators",
         },
         link: "https://www.northwoodsairlifeline.org",
     },
@@ -121,12 +127,17 @@ const partners: partner[] = [
     },
     {
         organization: "Superior Health Foundation",
+        description: "The Superior Health Foundation is a health-centered, grant-giving organization that provides funding to address equipment, health education and program needs for the residents of the Upper Peninsula.",
         logo: {
             src: `${import.meta.env.BASE_URL}/graphics/logos/superior-health-foundation.png`,
             alt: "Superior Health Foundation logo",
             span: 2
         },
-        link: "https://superiorhealthfoundation.org/",
+        coverPhoto: {
+            src: `${import.meta.env.BASE_URL}/images/covers/superior-health-foundation.jpg`,
+            alt: "Ballroom holding the SHF 2022 Gala",
+        },
+        link: `${import.meta.env.BASE_URL}/partners/superior-health-foundation`,
     },
     {
         organization: "Defense Against Diabetes",
@@ -147,7 +158,7 @@ const partners: partner[] = [
             src: `${import.meta.env.BASE_URL}/images/covers/tour-da-yoop-eh.jpg`,
             alt: "Tour Da Yoop, Eh cyclists on the road.",
         },
-        link: "https://tourdayoopeh.com/",
+        link: `${import.meta.env.BASE_URL}/partners/tour-da-yoop-eh`,
     },
     {
         organization: "Call of the Yooper",
@@ -185,6 +196,10 @@ const partners: partner[] = [
     },
 ]
 
+let spotlightPartner: partner = partners[13]
+const setSpotlightPartner = (partnerId: number) => {
+    spotlightPartner = partners[partnerId]
+}
 ---
 
 <!-- TODO: Description -->
@@ -195,36 +210,7 @@ const partners: partner[] = [
 
     <Group width="large" style="mb-16">
         <Headline>Spotlight</Headline>
-        <div class=" bg-white rounded-3xl shadow-lg lg:flex gap-4">
-            <!-- Cover and logo -->
-            <div class="
-                    w-full px-8 py-4 
-                    flex justify-center items-center overflow-hidden
-                    relative
-                    rounded-t-3xl lg:rounded-tr-none lg:rounded-l-3xl">
-                <img 
-                    src={partners[13].coverPhoto!.src} alt={partners[13].coverPhoto!.alt}
-                    class="absolute object-cover w-full h-full z-0 saturate-0 opacity-60" />
-                <img 
-                    src={partners[13].logo.src} alt={partners[13].logo.alt}
-                    class="
-                        max-h-48 z-10" />
-            </div>
-            <!-- Text -->
-            <div class=" px-4 pt-6 pb-8 flex flex-col gap-4">
-                <h3>{partners[13].organization}</h3>
-                <p>{partners[13].description!}</p>
-                <Button href={partners[13].link}>Learn more</Button>
-            </div>
-        </div>
-        <!-- TODO: Make interactive -->
-        <div class="flex gap-4 mt-4">
-            <span class="block w-2 h-2 rounded-full bg-orange"></span>
-            <span class="block w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)]"></span>
-            <span class="block w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)]"></span>
-            <span class="block w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)]"></span>
-            <span class="block w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)]"></span>
-        </div>
+        <PartnerSpotlight partners={[partners[13], partners[11]]} client:load />
     </Group>
 
     <Group width="large">
