@@ -1,5 +1,6 @@
 <script lang="ts">
 export let direction: string = "center"
+export let inline: boolean = false
 export let id: string|null = null
 
 switch (direction) {
@@ -16,7 +17,7 @@ switch (direction) {
 
 </script>
 
-<div class="w-full flex flex-col {direction}">
+<div class="{inline ? 'w-auto' : 'w-full'} flex flex-col {direction}">
     <h2 {id} class="text-3xl scroll-mt-36 md:scroll-mt-32">
         <slot>Section <span class="text-orange">Headline</span></slot>
     </h2>

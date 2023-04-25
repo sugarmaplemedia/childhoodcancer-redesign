@@ -38,19 +38,15 @@ let position = 0
 $: current = content[position]
 
 let clicked: "previous"|"next"|null = null
-$: {
-    setTimeout(() => {
-        clicked = null
-    }, 200)
-}
-
 const handleClick_previous = () => {
     position == 0 ? position = content.length - 1 : position--
     clicked = "previous"
+    setTimeout(() => clicked = null, 200)
 }
 const handleClick_next = () => {
     position == content.length - 1 ? position = 0 : position++
     clicked = "next"
+    setTimeout(() => clicked = null, 200)
 }
 
 </script>
@@ -87,7 +83,7 @@ const handleClick_next = () => {
                         {clicked == "previous" ? 'scale-75 hover:scale-75' : 'scale-100 hover:scale-95'}">
                     <Icon id="arrow" styling="translate-y-0.5 scale-50 rotate-180" />
                 </button>
-                <Headline>Our <span class="text-orange">Heroes</span></Headline>
+                <Headline inline>Our <span class="text-orange">Heroes</span></Headline>
                 <button
                     on:click={handleClick_next}
                     class="
