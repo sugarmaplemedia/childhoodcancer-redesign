@@ -10,7 +10,7 @@
         : width == 'base' ? 'lg:max-w-3xl' 
         : width == 'large' ? 'lg:max-w-4xl'
         : 'max-w-full' }
-        relative z-0
+        relative z-20
         flex {row ? "flex-row" : "flex-col"} items-center gap-4 {style}">
     <slot />
 </section>

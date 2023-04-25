@@ -1,10 +1,32 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import ContentPageLayout from "@layouts/ContentPageLayout.astro";
+import Group from "@components/ContentPage/Group.svelte";
+import Gallery from "@components/gallery.svelte";
+
+type photo = {
+    alt: string
+    src: string,
+    thumbnailSrc: string,
+}
+
+const photos: photo[] = await Astro.glob("/public/photo-gallery/*.jpg")
+    .then(files => files.map(file => {
+        const fileName = file.default.slice(file.default.lastIndexOf("/") + 1)
+        return { 
+            alt: "",
+            src: `${import.meta.env.BASE_URL}/photo-gallery/${fileName}`,
+            thumbnailSrc: `${import.meta.env.BASE_URL}/photo-gallery/thumbnails/${fileName}`
+        } as photo
+    }))
 ---
 
 <!-- TODO: Description -->
-<BaseLayout
+<ContentPageLayout
     title="Photo Gallery"
     description="">
 
-</BaseLayout>
+    <Group>
+        <Gallery photos={photos} client:load />
+    </Group>
+
+</ContentPageLayout>

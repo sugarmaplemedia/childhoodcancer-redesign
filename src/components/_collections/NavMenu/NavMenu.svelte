@@ -40,7 +40,7 @@
 
 <nav class="
         w-full h-20 lg:h-auto
-        sticky top-0 z-50
+        sticky top-0 z-30
         flex justify-center items-center lg:justify-start
         bg-white
         font-menu uppercase font-medium text-xl">

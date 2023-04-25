@@ -42,7 +42,7 @@ const {
                 width="1920" height="540"
                 class="
                     w-full
-                    fixed top-24 z-0 md:top-16 lg:top-24 xl:top-16
+                    fixed top-24 -z-10 md:top-16 lg:top-24 xl:top-16
                     scale-150"/>
             <div class="w-full h-40 sm:h-64 lg:h-[30rem]">
             </div>
@@ -51,7 +51,7 @@ const {
             src={`${import.meta.env.BASE_URL}/graphics/swooshes/Asset 8.svg`} alt=""
             class="
                 -mb-52 sm:-mb-64 md:-mb-80
-                relative z-20
+                relative z-10
                 lg:relative lg:-top-[8.6rem]
                 -translate-y-[60%] -rotate-[4deg] scale-150 sm:-translate-y-[75%] md:-translate-y-[64%] lg:-translate-y-[60%]
                 pointer-events-none">
@@ -59,7 +59,6 @@ const {
 
     <article class={`
             w-full min-h-[36rem] pt-12 pb-24 sm:pt-16 lg:pt-24
-            z-10
             flex flex-col items-center gap-10
             bg-offwhite
             ${style}`}>
