@@ -94,6 +94,7 @@ const handleClick_next = () => {
             flex justify-between items-center gap-6
             z-10">
         <button
+            aria-label="View previous purpose"
             on:click={handleClick_previous}
             class="
                 h-18
@@ -116,6 +117,7 @@ const handleClick_next = () => {
                 border-t-[6px] border-dotted border-navy-light
                 translate-y-[0.125rem]" />
         <button
+            aria-label="View next purpose"
             on:click={handleClick_next}
             class="
                 h-18

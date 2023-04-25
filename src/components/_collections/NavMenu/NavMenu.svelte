@@ -156,6 +156,7 @@
     </a>
     <!-- Mobile Hamburger -->
     <button 
+        aria-label="Hamburger Menu"
         bind:this={hamburger}
         on:click={handleClick_OpenMenu}
         on:keydown={handleKeyDown_OpenMenu}

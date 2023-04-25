@@ -74,6 +74,7 @@ const handleClick_next = () => {
                     w-full lg:w-auto pb-8
                     flex items-center justify-center gap-4 xl:gap-8">
                 <button
+                    aria-label="View previous hero"
                     on:click={handleClick_previous}
                     class="
                         w-12 h-12
@@ -85,6 +86,7 @@ const handleClick_next = () => {
                 </button>
                 <Headline inline>Our <span class="text-orange">Heroes</span></Headline>
                 <button
+                    aria-label="View next hero"
                     on:click={handleClick_next}
                     class="
                         w-12 h-12

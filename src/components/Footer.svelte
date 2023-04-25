@@ -30,16 +30,16 @@ import Icon from "./Icon.svelte";
             <!-- Page Links -->
             <div class="flex justify-around">
                 <div>
-                    <h4 class="mb-2 text-white font-sans font-bold uppercase">Partners</h4>
-                    <menu class="flex flex-col gap-1">
+                    <h4 class="mb-4 md:mb-2 text-white font-sans font-bold uppercase">Partners</h4>
+                    <menu class="flex flex-col gap-4 md:gap-1">
                         <li><a href="{import.meta.env.BASE_URL}/partners/tour-da-yoop-eh">Tour Da Yoop, Eh</a></li>
                         <li><a href="{import.meta.env.BASE_URL}/partners/superior-health-foundation">SHF Annual Gala</a></li>
                         <li><a href="{import.meta.env.BASE_URL}/partners">All Partners</a></li>
                     </menu>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-white font-sans font-bold uppercase">Pages</h4>
-                    <menu class="flex flex-col gap-1">
+                    <h4 class="mb-4 md:mb-2 text-white font-sans font-bold uppercase">Pages</h4>
+                    <menu class="flex flex-col gap-4 md:gap-1">
                         <li><a href="{import.meta.env.BASE_URL}/about">About Us</a></li>
                         <li><a href="{import.meta.env.BASE_URL}/get-help">Get Help</a></li>
                         <li><a href="{import.meta.env.BASE_URL}/donate">Donate</a></li>
