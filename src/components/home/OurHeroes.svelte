@@ -39,8 +39,6 @@ $: current = content[position]
 
 let clicked: "previous"|"next"|null = null
 $: {
-    console.log("clicked", clicked)
-    
     setTimeout(() => {
         clicked = null
     }, 200)

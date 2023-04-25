@@ -23,8 +23,21 @@ let buttonBox: HTMLDivElement
 let position = 0
 $: spotlightPartner = partners[position]
 const setSpotlightPartner = (index: number) => position = index
-const incSpotlightPartner = () => position = (position + 1) % partners.length
-const decSpotlightPartner = () => position = (position - 1 + partners.length) % partners.length
+
+let clicked: "previous"|"next"|null = null
+const nullifyClicked = () => setTimeout(() => clicked = null, 150)
+const decSpotlightPartner = () => {
+    position = (position - 1 + partners.length) % partners.length
+    clicked = "previous"
+    nullifyClicked()
+}
+const incSpotlightPartner = () => {
+    position = (position + 1) % partners.length
+    clicked = "next"
+    nullifyClicked()
+}
+
+
 </script>
 
 <div class="lg:h-80 bg-white rounded-3xl shadow-lg lg:flex gap-4">
@@ -45,7 +58,7 @@ const decSpotlightPartner = () => position = (position - 1 + partners.length) % 
                 max-h-40 lg:max-h-48 max-w-[12rem] z-10" />
     </div>
     <!-- Text -->
-    <div in:fade class="h-96 lg:h-auto px-4 pt-6 pb-8 flex flex-col gap-4">
+    <div in:fade class="h-96 sm:h-72 lg:h-auto px-4 pt-6 pb-8 flex flex-col gap-4">
         <h3>{spotlightPartner.organization}</h3>
         <p class="grow">{spotlightPartner.description}</p>
         <Button href={spotlightPartner.link}>Learn more</Button>
@@ -57,7 +70,7 @@ const decSpotlightPartner = () => position = (position - 1 + partners.length) % 
     <button tabindex="0"
         on:click={decSpotlightPartner}
         on:keypress={decSpotlightPartner}
-        class="rotate-180">
+        class="rotate-180 {clicked == 'previous' ? '-translate-x-2' : 'translate-x-0'} transition-all">
         <Icon id="arrow" styling="w-6 h-6" />
     </button>
 
@@ -75,7 +88,8 @@ const decSpotlightPartner = () => position = (position - 1 + partners.length) % 
 
     <button tabindex="0"
         on:click={incSpotlightPartner}
-        on:keypress={incSpotlightPartner}>
+        on:keypress={incSpotlightPartner}
+        class="{clicked == 'next' ? 'translate-x-2' : 'translate-x-0'} transition-all">
         <Icon id="arrow" styling="w-6 h-6" />
     </button>
 </div>
