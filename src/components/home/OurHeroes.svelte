@@ -101,7 +101,7 @@ const handleClick_next = () => {
             <div
                 in:fly={{ y: 20, duration: 400 }}
                 class="w-full px-8 space-y-4">
-                <h4>{current.name}</h4>
+                <h3 class="text-xl">{current.name}</h3>
                 <p class="font-bold">{current.heading}</p>
                 <p>{@html current.story}</p>
             </div>
