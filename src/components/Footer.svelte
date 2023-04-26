@@ -57,7 +57,7 @@ import Icon from "./Icon.svelte";
                     <div class="flex items-center gap-4">
                         <Icon id="location" color="white" styling="w-5 h-5" />
                         <p class="text-white">
-                            District 10 Lions<br/>
+                            U.P. Lions Serve<br/>
                             Childhood Cancer<br/>
                             PO BOX 107<br/>
                             Engadine, Michigan 49827
@@ -73,8 +73,21 @@ import Icon from "./Icon.svelte";
                 <a href="{import.meta.env.BASE_URL}" class="w-3/4 max-w-[240px]">
                     <img
                         src="{import.meta.env.BASE_URL}/graphics/logos/cc-logo-gold.svg"
-                        alt="Childhood Cancer Logo">
+                        alt="Childhood Cancer Logo" />
                 </a>
+                <div class="w-full max-w-xs md:max-w-sm px-0 md:px-4 lg:px-8 flex items-center gap-2">
+                    <a href="https://www.lionsclubs.org/en">
+                        <img
+                            src="{import.meta.env.BASE_URL}/graphics/logos/lions-international.svg"
+                            alt="Lions Clubs International Logo"
+                            class="h-16 lg:h-14 brightness-0 invert" />
+                    </a>
+                    <a href="https://uplionsserve.org" class="w-full">
+                        <img
+                            src="{import.meta.env.BASE_URL}/graphics/logos/up-lions-serve.svg"
+                            alt="Lions Clubs International Logo" />
+                    </a>
+                </div>
                 <div class="w-full flex justify-center gap-8">
                     <div class="flex items-center gap-2">
                         <Icon id="facebook" color="white" styling="w-5 h-5 translate-y-0.5" />
