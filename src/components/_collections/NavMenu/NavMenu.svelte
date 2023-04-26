@@ -2,6 +2,7 @@
     import NavLink from "./NavLink.svelte"
     import NavSpacer from "./NavSpacer.svelte";
     import NavFolder from "./NavFolder.svelte";
+    import Icon from "@components/Icon.svelte";
 
     export let page: string
 
@@ -49,12 +50,12 @@
         aria-label="Go back to U.P. Lions Serve home page"
         href="https://uplionsserve.org"
         class="
-            w-8 h-8 mr-[36vw] lg:w-6 lg:h-6 lg:pt-6 lg:ml-8 lg:mr-0 xl:w-8 xl:h-8 xl:pt-5 xl:ml-16
-            fill-navy
-            -translate-y-0.5 hover:translate-y-0 hover:rotate-12
+            mr-[36vw] lg:ml-5 lg:mr-0 lg:mt-10 xl:w-8 xl:h-8 xl:pt-5 xl:ml-16
+            hover:translate-y-1
             transition-all origin-bottom-right duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <img src={`${import.meta.env.BASE_URL}/graphics/logos/up-lions-serve-short.svg`} alt="" 
+                class="w-12 md:w-20 lg:w-16 h-8">
+        
     </a>
     <!-- CC Logo -->
     <a 
