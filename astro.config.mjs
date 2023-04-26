@@ -15,5 +15,6 @@ export default defineConfig({
         })
     ],
     base: "/childhood-cancer",
+    outDir: "./dist/childhood-cancer",
     trailingSlash: "never",
 });

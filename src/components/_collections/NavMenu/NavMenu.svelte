@@ -50,7 +50,7 @@
         aria-label="Go back to U.P. Lions Serve home page"
         href="https://uplionsserve.org"
         class="
-            mr-[36vw] lg:ml-5 lg:mr-0 lg:mt-10 xl:w-8 xl:h-8 xl:pt-5 xl:ml-16
+            mr-[36vw] lg:ml-5 lg:mr-0 lg:mt-10
             hover:translate-y-1
             transition-all origin-bottom-right duration-300">
             <img src={`${import.meta.env.BASE_URL}/graphics/logos/up-lions-serve-short.svg`} alt="" 
