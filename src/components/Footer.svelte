@@ -4,7 +4,7 @@ import Icon from "./Icon.svelte";
 
 </script>
 
-<footer>
+<footer class="relative z-0">
     <div class="text-white bg-navy flex flex-col items-center pt-16 pb-8">
         <div class="
                 w-full max-w-md md:max-w-3xl xl:max-w-5xl px-8
@@ -30,19 +30,19 @@ import Icon from "./Icon.svelte";
             <!-- Page Links -->
             <div class="flex justify-around">
                 <div>
-                    <h4 class="mb-2 text-white font-sans font-bold uppercase">Events</h4>
-                    <menu class="flex flex-col gap-1">
-                        <li><a href="{import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh">Tour Da Yoop, Eh</a></li>
-                        <li><a href="{import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh">SHF Annual Gala</a></li>
-                        <li><a href="{import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh">I Trekked the U.P.</a></li>
+                    <h3 class="mb-4 md:mb-2 text-white font-sans font-bold uppercase text-xl">Partners</h3>
+                    <menu class="flex flex-col gap-4 md:gap-1">
+                        <li><a href="{import.meta.env.BASE_URL}/partners/tour-da-yoop-eh">Tour Da Yoop, Eh</a></li>
+                        <li><a href="{import.meta.env.BASE_URL}/partners/superior-health-foundation">SHF Annual Gala</a></li>
+                        <li><a href="{import.meta.env.BASE_URL}/partners">All Partners</a></li>
                     </menu>
                 </div>
                 <div>
-                    <h4 class="mb-2 text-white font-sans font-bold uppercase">initiatives</h4>
-                    <menu class="flex flex-col gap-1">
-                        <li><a href="{import.meta.env.BASE_URL}/programs/initiatives/camp-quality">Camp Quality</a></li>
-                        <li><a href="{import.meta.env.BASE_URL}/programs/initiatives/maggies-wigs-4-kids">Maggies Wigs 4 Kids</a></li>
-                        <li><a href="{import.meta.env.BASE_URL}/programs/initiatives/kids-kicking-cancer">Kids Kicking Cancer</a></li>
+                    <h3 class="mb-4 md:mb-2 text-white font-sans font-bold uppercase text-xl">Pages</h3>
+                    <menu class="flex flex-col gap-4 md:gap-1">
+                        <li><a href="{import.meta.env.BASE_URL}/about">About Us</a></li>
+                        <li><a href="{import.meta.env.BASE_URL}/get-help">Get Help</a></li>
+                        <li><a href="{import.meta.env.BASE_URL}/donate">Donate</a></li>
                     </menu>
                 </div>
             </div>
@@ -57,7 +57,7 @@ import Icon from "./Icon.svelte";
                     <div class="flex items-center gap-4">
                         <Icon id="location" color="white" styling="w-5 h-5" />
                         <p class="text-white">
-                            District 10 Lions<br/>
+                            U.P. Lions Serve<br/>
                             Childhood Cancer<br/>
                             PO BOX 107<br/>
                             Engadine, Michigan 49827
@@ -73,8 +73,21 @@ import Icon from "./Icon.svelte";
                 <a href="{import.meta.env.BASE_URL}" class="w-3/4 max-w-[240px]">
                     <img
                         src="{import.meta.env.BASE_URL}/graphics/logos/cc-logo-gold.svg"
-                        alt="Childhood Cancer Logo">
+                        alt="Childhood Cancer Logo" />
                 </a>
+                <div class="w-full max-w-xs md:max-w-sm px-0 md:px-4 lg:px-8 flex items-center gap-2">
+                    <a href="https://www.lionsclubs.org/en">
+                        <img
+                            src="{import.meta.env.BASE_URL}/graphics/logos/lions-international.svg"
+                            alt="Lions Clubs International Logo"
+                            class="h-16 lg:h-14 brightness-0 invert" />
+                    </a>
+                    <a href="https://uplionsserve.org" class="w-full">
+                        <img
+                            src="{import.meta.env.BASE_URL}/graphics/logos/up-lions-serve.svg"
+                            alt="Lions Clubs International Logo" />
+                    </a>
+                </div>
                 <div class="w-full flex justify-center gap-8">
                     <div class="flex items-center gap-2">
                         <Icon id="facebook" color="white" styling="w-5 h-5 translate-y-0.5" />

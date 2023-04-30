@@ -8,7 +8,7 @@
 </script>
 
 <a {href} class="
-    w-full max-w-xs flex flex-col items-center justify-between
+    w-[17.6rem] max-w-xs flex flex-col items-center justify-between
     overflow-hidden
     bg-white rounded-3xl
     drop-shadow-blue
@@ -21,13 +21,13 @@
     <img {src} {alt} /> 
     <div class="pt-8 w-full
         flex flex-col items-center grow">
-        <Heading size={4}><slot name="title">Card Title</slot></Heading>
+        <h3 class="text-xl"><slot name="title">Card Title</slot></h3>
         <p class="py-6 px-8 text-left">
             <slot name="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad facilis deserunt sed sunt illo rem magni debitis reiciendis nesciunt repellendus, culpa a, veritatis voluptatem dignissimos! Reiciendis eligendi blanditiis architecto reprehenderit optio voluptas facilis tenetur nemo quia recusandae vitae nostrum consequatur repudiandae consectetur iste quibusdam dicta perspiciatis, quas quis! Autem, voluptatum?</slot>
         </p>
     </div>
     <span class="pb-4">
-        <Heading size={6}><em>Click to view more information.</em></Heading>
+        <p class="text-sm text-navy-dark opacity-60">Click to view more information.</p>
     </span>
     <div class="w-full">
         <hr class="h-4

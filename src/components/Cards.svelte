@@ -28,12 +28,12 @@ export let button: { text: string, href: string }|null = null
     {/if}
     <div class="
             max-w-4xl w-full mb-8
-            flex lg:grid flex-col grid-cols-3 items-center lg:items-stretch gap-6">
+            flex lg:flex-row flex-wrap flex-col grid-cols-3 items-center justify-center lg:items-stretch gap-6">
         {#each content as card}
         <Card
             src={`${import.meta.env.BASE_URL}/${card.src}`}
             alt={card.alt}
-            href={`${import.meta.env.BASE_URL}/${card.href}`}>
+            href={card.href}>
             <span slot="title">{card.title}</span>
             <span slot="text">{card.text}</span>
         </Card>

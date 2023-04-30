@@ -24,7 +24,7 @@
 
 </script>
 
-<span class="group
+<li class="group
         relative">
     <div class="flex justify-center items-center gap-4 lg:block">
         <NavLink activePage={page == pageCheck} {href}>{pageCheck}</NavLink>
@@ -42,7 +42,7 @@
                     <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/></svg>
         </button>
     </div>
-    <div class="
+    <ul class="
             pt-4 lg:m-16 lg:py-6
             lg:flex flex-col items-center justify-center gap-2
             lg:absolute -top-10 {position}
@@ -52,5 +52,5 @@
             transition-all origin-top
             {folderIsOpen ? 'visible scale-y-100 max-h-60 lg:max-h-none' : 'invisible scale-y-0 max-h-0 lg:max-h-none lg:scale-y-100 lg:visible'}">
         <slot />
-    </div>
-</span>
+    </ul>
+</li>

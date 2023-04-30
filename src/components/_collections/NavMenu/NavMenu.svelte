@@ -2,6 +2,7 @@
     import NavLink from "./NavLink.svelte"
     import NavSpacer from "./NavSpacer.svelte";
     import NavFolder from "./NavFolder.svelte";
+    import Icon from "@components/Icon.svelte";
 
     export let page: string
 
@@ -40,28 +41,32 @@
 
 <nav class="
         w-full h-20 lg:h-auto
-        sticky top-0 z-50
+        sticky top-0 z-30
         flex justify-center items-center lg:justify-start
         bg-white
         font-menu uppercase font-medium text-xl">
     <!-- Back Arrow -->
     <a 
+        aria-label="Go back to U.P. Lions Serve home page"
         href="https://uplionsserve.org"
         class="
-            w-8 h-8 mr-[36vw] lg:w-6 lg:h-6 lg:pt-6 lg:ml-8 lg:mr-0 xl:w-8 xl:h-8 xl:pt-5 xl:ml-16
-            fill-navy
-            -translate-y-0.5 hover:translate-y-0 hover:rotate-12
+            mr-[36vw] lg:ml-5 lg:mr-0 lg:mt-10
+            hover:translate-y-1
             transition-all origin-bottom-right duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <img src={`${import.meta.env.BASE_URL}/graphics/logos/up-lions-serve-short.svg`} alt="" 
+                class="w-12 md:w-20 lg:w-16 h-8">
+        
     </a>
     <!-- CC Logo -->
-    <a href={`${import.meta.env.BASE_URL}`} class="
-        w-52 mx-auto
-        absolute top-4 z-10 lg:left-20 lg:top-4 xl:left-32
-        md:hover:translate-y-2
-        hover:cursor-pointer
-        transition-all bounce">
+    <a 
+        aria-label="Go back to Childhood Cancer home page"
+        href={`${import.meta.env.BASE_URL}`} 
+        class="
+            w-52 mx-auto
+            absolute top-4 z-10 lg:left-20 lg:top-4 xl:left-32
+            md:hover:translate-y-2
+            hover:cursor-pointer
+            transition-all bounce">
         <svg viewBox="0 0 422.99 230.95">
             <defs>
               <style>
@@ -156,6 +161,7 @@
     </a>
     <!-- Mobile Hamburger -->
     <button 
+        aria-label="Open menu"
         bind:this={hamburger}
         on:click={handleClick_OpenMenu}
         on:keydown={handleKeyDown_OpenMenu}
@@ -176,24 +182,17 @@
             text-navy
             transition-all
             {MOBILE_MENU_IS_OPEN ? `translate-x-0` : `translate-x-full lg:translate-x-0`}">
-        <!-- <NavFolder
-            href={`${import.meta.env.BASE_URL}/programs#events`}
-            {page} pageCheck="Events"
-            position="-left-40 xl:-left-[11.5rem]">
-            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/tour-da-yoop-eh`} dropdown>Tour Da Yoop, Eh</NavLink>
+        <NavFolder
+            href={`${import.meta.env.BASE_URL}/partners`}
+            {page} pageCheck="Partners"
+            position="-left-40 xl:-left-[11rem]">
+            <NavLink activePage={page == "Tour Da Yoop, Eh"} href={`${import.meta.env.BASE_URL}/partners/tour-da-yoop-eh`} dropdown>Tour Da Yoop, Eh</NavLink>
             <NavSpacer />
-            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/events/shf-annual-gala`} dropdown>SHF Annual Gala</NavLink>
-        </NavFolder> -->
-        <!-- <NavFolder
-            href={`${import.meta.env.BASE_URL}/programs#initiatives`}
-            {page} pageCheck="Initiatives"
-            position="-left-36 xl:-left-[10.5rem]">
-            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/camp-quality`} dropdown>Camp Quality</NavLink>
+            <NavLink activePage={page == "Superior Health Foundation"} href={`${import.meta.env.BASE_URL}/partners/superior-health-foundation`} dropdown>Superior Health Foundation</NavLink>
             <NavSpacer />
-            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/maggies-wigs-4-kids`} dropdown>Maggies Wigs 4 Kids</NavLink>
-            <NavSpacer />
-            <NavLink activePage={page == "Programs"} href={`${import.meta.env.BASE_URL}/programs/initiatives/kids-kicking-cancer`} dropdown>Kids Kicking Cancer</NavLink>
-        </NavFolder> -->
+            <NavLink activePage={page == "Partners#all"} href={`${import.meta.env.BASE_URL}/partners#all`} dropdown>All Partners</NavLink>
+        </NavFolder>
+        <!-- TODO: Implement Resources pages -->
         <!-- <NavFolder
             href={`${import.meta.env.BASE_URL}/resources`}
             {page} pageCheck="Resources"
@@ -206,7 +205,8 @@
             <NavSpacer />
             <NavLink activePage={page == "Resources"} href={`${import.meta.env.BASE_URL}/resources/learn`} dropdown>Learn</NavLink>
         </NavFolder> -->
-        <!-- <NavLink activePage={page == "About"} href={`${import.meta.env.BASE_URL}/about`}>About</NavLink> -->
+        <NavLink activePage={page == "About"} href={`${import.meta.env.BASE_URL}/about`}>About</NavLink>
+        <NavLink activePage={page == "Photo Gallery"} href={`${import.meta.env.BASE_URL}/photo-gallery`}>Photo Gallery</NavLink>
         <NavLink activePage={page == "Get Help"} href={`${import.meta.env.BASE_URL}/get-help`}>Get Help</NavLink>
     </ul>
     <a 

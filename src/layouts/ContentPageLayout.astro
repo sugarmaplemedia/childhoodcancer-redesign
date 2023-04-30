@@ -8,24 +8,31 @@ type hero = {
 }
 
 interface Props {
-    title: string
+    title: string,
+    hideTitle?: boolean
     description: string
     robots?: boolean
     hero?: hero
+    style?: string
 }
 
 const {
     title,
+    hideTitle = false,
     description,
+    robots = true,
     hero = {
         src: "https://placehold.co/1920x560.jpg",
         alt: "Placeholder image"
-    }} = Astro.props;
+    },
+    style = ""
+} = Astro.props;
 ---
 
 <BaseLayout
     title={title}
-    description={description}>
+    description={description}
+    robots={robots}>
     
     <!-- HERO -->
     <section class="w-full h-28 sm:h-40 md:h-48 lg:h-72">
@@ -34,10 +41,10 @@ const {
                 flex flex-col items-center">
             <img
                 src={hero.src} alt={hero.alt}
-                width="1920" height="560"
+                width="1920" height="540"
                 class="
                     w-full
-                    fixed top-24 -z-20 md:top-16 lg:top-24 xl:top-16
+                    fixed top-24 -z-10 md:top-16 lg:top-24 xl:top-16
                     scale-150"/>
             <div class="w-full h-40 sm:h-64 lg:h-[30rem]">
             </div>
@@ -52,13 +59,16 @@ const {
                 pointer-events-none">
     </section>
 
-    <article class="
-            w-full py-12 sm:pt-16 lg:pt-24
+    <article class={`
+            w-full min-h-[36rem] pt-12 pb-24 sm:pt-16 lg:pt-24
             flex flex-col items-center gap-10
-            bg-white">
+            bg-offwhite
+            ${style}`}>
+        {!hideTitle && 
         <Group>
             <h1>{title}</h1>
         </Group>
+        }
         <slot />
     </article>
 </BaseLayout>

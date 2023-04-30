@@ -1,9 +1,6 @@
 ---
-import NavMenu from "@components/_collections/NavMenu/NavMenu.svelte";
 import "../base.css";
-import SocialMediaIcon from "@components/SocialMediaIcon.svelte";
-import Icon from "@components/Icon.svelte";
-import Button from "@components/Button.svelte";
+import NavMenu from "@components/_collections/NavMenu/NavMenu.svelte";
 import Footer from "@components/Footer.svelte";
 
 interface Props {
@@ -35,9 +32,6 @@ const {
 
         <!-- Font initialization -->
         <link rel="stylesheet" href="https://use.typekit.net/zhd4kcf.css" />
-
-        <!-- Donorbox initialization -->
-        <!-- <script src="https://donorbox.org/widget.js" paypalExpress="false"></script> -->
     </head>
     <body class="text-navy">
         {nav && <NavMenu page={title} client:load /> }

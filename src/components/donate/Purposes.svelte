@@ -5,17 +5,17 @@
         {
             icon: "car",
             title: "Travel Costs",
-            description: "To receive care, our families must travel long distances. Our grants assist with travel costs, such as gas food, and accomodations."
-        },
-        {
-            icon: "love",
-            title: "Emotional Support",
-            description: "Lions Clubs from around the U.P. provide toys, cards, hats, quilts, pillowcases, love, and more to let our families know they aren't alone."
+            description: "To receive care, our families must travel long distances. Our grants assist with travel costs, such as gas, food, and accomodations."
         },
         {
             icon: "bill",
             title: "Household Bills",
-            description: "Fighting cancer is expensive. Our grants help with bills, such as rent, utilities, groceries, and the associated extensive medical charges."
+            description: "Fighting cancer is expensive. Our grants help with bills, such as rent, utilities, groceries, and other housing related fees."
+        },
+        {
+            icon: "hospital",
+            title: "Medical Bills",
+            description: "Our grants help with medical bills, such as co-pays, deductibles, and other expenses that are not covered by insurance."
         }
     ]
 </script>

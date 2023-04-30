@@ -7,22 +7,27 @@ let content = [
     {
         icon: "car",
         title: "Travel Costs",
-        description: "To receive care, our families must travel long distances. Our grants assist with travel costs, such as gas food, and accomodations."
+        description: "To receive care, our families must travel long distances. Our grants assist with travel costs, such as gas, food, and accomodations."
     },
     {
         icon: "love",
-        title: "Emotional Support",
+        title: "Community",
         description: "Lions Clubs from around the U.P. provide toys, cards, hats, quilts, pillowcases, love, and more to let our families know they aren't alone."
     },
     {
         icon: "bill",
         title: "Household Bills",
-        description: "Fighting cancer is expensive. Our grants help with bills, such as rent, utilities, groceries, and the associated extensive medical charges."
+        description: "Fighting cancer is expensive. Our grants help with bills, such as rent, utilities, groceries, and other housing related fees."
+    },
+    {
+        icon: "hospital",
+        title: "Medical Bills",
+        description: "Our grants help with medical bills, such as co-pays, deductibles, and other expenses that are not covered by insurance."
     }
 ]
 
 let position = 0
-$: current = Math.abs(position % 3)
+$: current = Math.abs(position % content.length)
 $: last = Math.abs(slideOrigin == "left" ? (position + 1) % content.length : (position - 1) % content.length)
 
 let slideOrigin: "left"|"right" = "right"
@@ -89,6 +94,7 @@ const handleClick_next = () => {
             flex justify-between items-center gap-6
             z-10">
         <button
+            aria-label="View previous purpose"
             on:click={handleClick_previous}
             class="
                 h-18
@@ -111,6 +117,7 @@ const handleClick_next = () => {
                 border-t-[6px] border-dotted border-navy-light
                 translate-y-[0.125rem]" />
         <button
+            aria-label="View next purpose"
             on:click={handleClick_next}
             class="
                 h-18
@@ -137,14 +144,14 @@ const handleClick_next = () => {
 </section>
 
 <section class="
-        w-screen max-w-4xl pt-8 mb-16
+        w-screen max-w-5xl pt-8 mb-16
         hidden md:flex flex-col items-center gap-8
         z-10">
     <Headline>Our <span class="text-orange">Purpose</span></Headline>
     <div class="
             w-full px-8 overflow-x-hidden
             relative
-            flex items-center justify-center gap-4">
+            flex justify-center gap-4">
         {#each content as current, i}
         <div class="
                 px-4
@@ -156,7 +163,7 @@ const handleClick_next = () => {
         </div>
         {#if i != content.length - 1}
         <hr class="
-                h-36 w-0
+                h-auto my-16 w-0
                 border-r-[6px] border-dotted border-navy-super-light
                 -translate-x-2" />
         {/if}
